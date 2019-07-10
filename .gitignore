@@ -1,5 +1,10 @@
 node_modules
-env
-venv
-results
-.DS_Store
+
+*.DS_Store
+
+env/
+venv/
+output/
+plots/
+datasets/
+results/
