@@ -1,0 +1,31 @@
+{
+  "name": "ibplustree",
+  "version": "1.0.0",
+  "description": "A package to implement the Interval B+ tree",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "tests"
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "performance-node": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.1"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/*.test.ts",
+    "test-coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/*.test.ts && nyc report",
+    "benchmark": "node -r ts-node/register benchmarks/src/Main.benchmark.ts"
+  },
+  "author": "EdgarACarneiro",
+  "license": "ISC"
+}
