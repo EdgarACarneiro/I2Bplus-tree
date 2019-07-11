@@ -1,6 +1,6 @@
 # Interval B+ tree implementation
 
-[![BCH compliance](https://bettercodehub.com/edge/badge/EdgarACarneiro/scholarship-MOST?branch=master&token=fcf2108bfde677d8424fecc0a10ea5caed68f2ce)](https://bettercodehub.com/)
+[![BCH compliance](https://bettercodehub.com/edge/badge/EdgarACarneiro/IBplusTree?branch=master&token=c449d489bdfdd5280d12b3886c2bbfe9b8bdcc28)](https://bettercodehub.com/)
 
 | Table of Contents | 
 |:-:|
