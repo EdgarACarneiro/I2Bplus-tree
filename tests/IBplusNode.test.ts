@@ -370,9 +370,9 @@ describe('Range Deletion', () => {
         tree.insert(new FlatInterval(23, 24));
         tree.insert(new FlatInterval(19, 41));
 
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).length).to.equal(13);
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
         tree.rangeDelete(0, 100);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).length).to.equal(0);
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
 
         // With binary making sure there are several levels in the tree
         tree = new IBplusTree(2, 0);
@@ -390,8 +390,8 @@ describe('Range Deletion', () => {
         tree.insert(new FlatInterval(23, 24));
         tree.insert(new FlatInterval(19, 41));
 
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).length).to.equal(13);
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
         tree.rangeDelete(0, 100);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).length).to.equal(0);
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
     });
 });

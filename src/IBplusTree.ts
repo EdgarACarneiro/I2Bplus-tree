@@ -59,7 +59,7 @@ export class IBplusTree {
         return this.root.loneRangeSearch(int);
     }
 
-    allRangeSearch(int: Interval): Array<FlatInterval> {
-        return Array.from(this.root.allRangeSearch(int));
+    allRangeSearch(int: Interval): Set<FlatInterval> {
+        return this.root.allRangeSearch(int);
     }
 }
