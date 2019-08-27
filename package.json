@@ -1,14 +1,13 @@
 {
   "name": "ibplustree",
   "version": "1.0.0",
-  "description": "A package to implement the Interval B+ tree",
+  "description": "A package to implement the Interval B+ tree, in TypeScript",
   "main": "src/index.ts",
   "directories": {
     "src": "src",
     "test": "tests"
   },
   "dependencies": {
-    "benchmark": "^2.1.4",
     "performance-node": "^0.2.0"
   },
   "devDependencies": {
@@ -19,13 +18,35 @@
     "mocha": "^6.0.2",
     "nyc": "^13.3.0",
     "ts-node": "^8.0.3",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.1",
+    "benchmark": "^2.1.4"
   },
   "scripts": {
     "test": "mocha -r ts-node/register tests/*.test.ts",
     "test-coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/*.test.ts && nyc report",
     "benchmark": "node -r ts-node/register benchmarks/src/Main.benchmark.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdgarACarneiro/IBplusTree.git"
+  },
+  "keywords": [
+    "temporal data",
+    "tree",
+    "tree structure",
+    "Interval B+ tree",
+    "intervals",
+    "temporal tree",
+    "B+",
+    "logarithmic complexity",
+    "temporal",
+    "index"
+  ],
+
   "author": "EdgarACarneiro",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdgarACarneiro/IBplusTree/issues"
+  },
+  "homepage": "https://github.com/EdgarACarneiro/IBplusTree#readme"
 }

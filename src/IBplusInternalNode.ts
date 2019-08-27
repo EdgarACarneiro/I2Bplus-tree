@@ -81,6 +81,7 @@ export class IBplusInternalNode extends IBplusNode {
         for (let i: number = 0; i < this.keys.length; ++i)
             if (int.getLowerBound() < this.keys[i])
                 return this.children[i > 0 ? i - 1 : i].findInsertNode(int);
+
         return this.children[this.keys.length - 1].findInsertNode(int); // The biggest
     }
 
