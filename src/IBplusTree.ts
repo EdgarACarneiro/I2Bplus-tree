@@ -32,6 +32,11 @@ export class IBplusTree {
         this.root = new IBplusInternalNode(order);
     }
 
+    /**
+     * Insert the given Interval in the tree
+     * 
+     * @param int The interval to be inserted
+     */
     insert(int: Interval): void {
         this.root.insert(int, this.alpha);
 
@@ -39,6 +44,11 @@ export class IBplusTree {
             this.root = this.root.getParent();
     }
 
+    /**
+     * Delete the given Interval from the tree
+     * 
+     * @param int The Interval to be removed
+     */
     delete(int: Interval): void {
         this.root.delete(int);
 
@@ -47,6 +57,13 @@ export class IBplusTree {
             this.root = <IBplusInternalNode>this.root.getChildren()[0];
     }
 
+    /**
+     * Destroy all intervals stored in the tree that are fully
+     * contained in the given bounds.
+     * 
+     * @param lowerBound The range query lower bound
+     * @param upperBound The range query upper bound
+     */
     rangeDelete(lowerBound: number, upperBound: number): void {
         this.root.rangeDelete(lowerBound, upperBound);
 
@@ -55,10 +72,23 @@ export class IBplusTree {
             this.root = <IBplusInternalNode>this.root.getChildren()[0];
     }
 
+    /**
+     * Gets the Interval with the lowest bound that intersects the
+     * given interval.
+     * 
+     * @param int The query interval
+     * @returns the FlatInterval that was found, null if none intersected.
+     */
     loneRangeSearch(int: Interval): FlatInterval | null {
         return this.root.loneRangeSearch(int);
     }
 
+    /**
+     * Fin all intervals stored in the tree that intersect the given range.
+     * 
+     * @param int The interval corresponding to the range query
+     * @returns  Set of intervals that intersect the range
+     */
     allRangeSearch(int: Interval): Set<FlatInterval> {
         return this.root.allRangeSearch(int);
     }
