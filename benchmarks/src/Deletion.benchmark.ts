@@ -15,7 +15,7 @@ const createTree = (intervals: Array<Interval>, order: number, alpha: number): [
         let intArr = tree.insert(intervals[i]);
 
         if (!(i % divider))
-            delInts.push(intArr[0]);
+            delInts.push(intervals[i]);
     }
 
     return [tree, delInts];
