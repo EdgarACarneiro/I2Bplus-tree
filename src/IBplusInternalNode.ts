@@ -185,21 +185,6 @@ export class IBplusInternalNode extends IBplusNode {
 
 
         for (let [leaf, int] of foundInts) {
-
-            console.log(leaf.getChildren().indexOf(int));
-            console.log(leaf.getLeftSibling()? leaf.getLeftSibling().getChildren().indexOf(int): 'null');
-            console.log(leaf.getRightSibling()? leaf.getRightSibling().getChildren().indexOf(int): 'null');
-            console.log(leaf.getSubstituteSibling()? leaf.getSubstituteSibling().getChildren().indexOf(int): 'null');
-            console.log("SUBST siblings")
-            console.log(leaf.getSubstituteSibling() && leaf.getSubstituteSibling().getLeftSibling()? leaf.getSubstituteSibling().getLeftSibling().getChildren().indexOf(int): 'null');
-            console.log(leaf.getSubstituteSibling() && leaf.getSubstituteSibling().getRightSibling()? leaf.getSubstituteSibling().getRightSibling().getChildren().indexOf(int): 'null');
-            console.log(int);
-            console.log(leaf.getMinKey());
-            console.log((leaf.getLeftSibling() && leaf.getLeftSibling().getChildren().indexOf(int) == -1) &&
-                        (leaf.getRightSibling() && leaf.getRightSibling().getChildren().indexOf(int) == -1) &&
-                        (leaf.getSubstituteSibling() && leaf.getSubstituteSibling().getChildren().indexOf(int) == -1) ? leaf.getSubstituteSibling() : '');
-            console.log("----")
-
             // Recursively get the leaf currently substituting this leaf
             let sibling: IBplusLeafNode = leaf.getSubstituteSibling();
             while (sibling) {
@@ -219,9 +204,6 @@ export class IBplusInternalNode extends IBplusNode {
                 else
                     throw Error('Unable to find child in range remove.');
 
-            // Child is stored in this Partition
-            console.log(leaf.getChildren().indexOf(int));
-            console.log('----')
             leaf.removeChild(leaf.getChildren().indexOf(int));
         }
     }
