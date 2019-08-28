@@ -183,8 +183,47 @@ export class IBplusInternalNode extends IBplusNode {
                 new FlatInterval(lowerBound, upperBound)
             );
 
-        for (let [leaf, int] of foundInts)
+
+        for (let [leaf, int] of foundInts) {
+
+            console.log(leaf.getChildren().indexOf(int));
+            console.log(leaf.getLeftSibling()? leaf.getLeftSibling().getChildren().indexOf(int): 'null');
+            console.log(leaf.getRightSibling()? leaf.getRightSibling().getChildren().indexOf(int): 'null');
+            console.log(leaf.getSubstituteSibling()? leaf.getSubstituteSibling().getChildren().indexOf(int): 'null');
+            console.log("SUBST siblings")
+            console.log(leaf.getSubstituteSibling() && leaf.getSubstituteSibling().getLeftSibling()? leaf.getSubstituteSibling().getLeftSibling().getChildren().indexOf(int): 'null');
+            console.log(leaf.getSubstituteSibling() && leaf.getSubstituteSibling().getRightSibling()? leaf.getSubstituteSibling().getRightSibling().getChildren().indexOf(int): 'null');
+            console.log(int);
+            console.log(leaf.getMinKey());
+            console.log((leaf.getLeftSibling() && leaf.getLeftSibling().getChildren().indexOf(int) == -1) &&
+                        (leaf.getRightSibling() && leaf.getRightSibling().getChildren().indexOf(int) == -1) &&
+                        (leaf.getSubstituteSibling() && leaf.getSubstituteSibling().getChildren().indexOf(int) == -1) ? leaf.getSubstituteSibling() : '');
+            console.log("----")
+
+            // Recursively get the leaf currently substituting this leaf
+            let sibling: IBplusLeafNode = leaf.getSubstituteSibling();
+            while (sibling) {
+                leaf = sibling;
+                sibling = sibling.getSubstituteSibling();
+            }
+
+            let childIdx: number = leaf.getChildren().indexOf(int);
+            if (childIdx < 0)
+                // Previous removals triggered borrows that moved the child
+                if (leaf.getLeftSibling() && int.getLowerBound() <= leaf.getMinKey())
+                    // Sent to left sibling leaf
+                    leaf = <IBplusLeafNode>leaf.getLeftSibling();
+                else if (leaf.getRightSibling() && int.getLowerBound() > leaf.getMinKey())
+                    // Sent to right sibling leaf
+                    leaf = <IBplusLeafNode>leaf.getRightSibling();
+                else
+                    throw Error('Unable to find child in range remove.');
+
+            // Child is stored in this Partition
+            console.log(leaf.getChildren().indexOf(int));
+            console.log('----')
             leaf.removeChild(leaf.getChildren().indexOf(int));
+        }
     }
 
     protected setChildParentOnBorrow(newChild: IBplusNode, insertId: number): void {
@@ -195,6 +234,10 @@ export class IBplusInternalNode extends IBplusNode {
     protected setChildrenParentOnMerge(newParent: IBplusInternalNode): void {
         for (let child of this.children)
             child.setParent(newParent);
+    }
+
+    protected setSubstitutionNode(node: IBplusNode): void {
+        // No interest in saving substitution node in Internal Nodes
     }
 
     isChildNewRoot(): boolean {

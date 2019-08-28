@@ -225,6 +225,14 @@ export abstract class IBplusNode {
     protected abstract setChildrenParentOnMerge(newParent: IBplusNode): void;
 
     /**
+     * Template Method.
+     * Set this node's substitution node, upon Merge.
+     * 
+     * @param node the substitution node
+     */
+    protected abstract setSubstitutionNode(node: IBplusNode): void;
+
+    /**
      * Merge this node into the given node
      * 
      * @param sibling The sibling to merge with
@@ -235,6 +243,7 @@ export abstract class IBplusNode {
         sibling.maximums.splice(id, 0, ...this.maximums);
         sibling.getChildren().splice(id, 0, ...this.getChildren());
 
+        this.setSubstitutionNode(sibling);
         this.setChildrenParentOnMerge(sibling);
 
         this.concatSiblings();

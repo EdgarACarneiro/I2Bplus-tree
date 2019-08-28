@@ -137,48 +137,6 @@ describe('Removals', () => {
         let tree: IBplusTree = new IBplusTree(4, 0);
         tree.insert(new FlatInterval(4, 22));
         tree.insert(new FlatInterval(6, 11));
-        tree.insert(new FlatInterval(10, 13));
-        tree.insert(new FlatInterval(14, 17));
-        tree.insert(new FlatInterval(20, 32));
-        tree.insert(new FlatInterval(26, 41));
-        tree.insert(new FlatInterval(2, 3));
-        tree.insert(new FlatInterval(3, 13));
-        tree.insert(new FlatInterval(26, 31));
-        tree.insert(new FlatInterval(15, 30));
-        tree.insert(new FlatInterval(22, 24));
-        tree.insert(new FlatInterval(23, 24));
-        tree.insert(new FlatInterval(19, 41));
-
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
-        tree.rangeDelete(0, 100);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
-
-        // With binary making sure there are several levels in the tree
-        tree = new IBplusTree(2, 0);
-        tree.insert(new FlatInterval(4, 22));
-        tree.insert(new FlatInterval(6, 11));
-        tree.insert(new FlatInterval(10, 13));
-        tree.insert(new FlatInterval(14, 17));
-        tree.insert(new FlatInterval(20, 32));
-        tree.insert(new FlatInterval(26, 41));
-        tree.insert(new FlatInterval(2, 3));
-        tree.insert(new FlatInterval(3, 13));
-        tree.insert(new FlatInterval(26, 31));
-        tree.insert(new FlatInterval(15, 30));
-        tree.insert(new FlatInterval(22, 24));
-        tree.insert(new FlatInterval(23, 24));
-        tree.insert(new FlatInterval(19, 41));
-
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
-        tree.rangeDelete(0, 100);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
-    });
-
-    it('Range deletion with merges and borrows between successive deletions', () => {
-        // With Order 4
-        let tree: IBplusTree = new IBplusTree(4, 0);
-        tree.insert(new FlatInterval(4, 22));
-        tree.insert(new FlatInterval(6, 11));
         tree.insert(new FlatInterval(10, 13)); // del
         tree.insert(new FlatInterval(14, 17)); // del
         tree.insert(new FlatInterval(20, 32));
@@ -198,7 +156,7 @@ describe('Removals', () => {
         expect(tree.allRangeSearch(new FlatInterval(10, 30)).size).to.equal(7);
         expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(8);
         for (let interval of Array.from(tree.allRangeSearch(new FlatInterval(0, 100))))
-            expect(interval.getLowerBound() > 30 || interval.getUpperBound() < 10).to.be.true;
+            expect(interval.getUpperBound() > 30 || interval.getLowerBound() < 10).to.be.true;
 
         // With binary making sure there are several levels in the tree
         tree = new IBplusTree(2, 0);
@@ -223,6 +181,48 @@ describe('Removals', () => {
         expect(tree.allRangeSearch(new FlatInterval(10, 30)).size).to.equal(7);
         expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(8);
         for (let interval of Array.from(tree.allRangeSearch(new FlatInterval(0, 100))))
-            expect(interval.getLowerBound() > 30 || interval.getUpperBound() < 10).to.be.true;
+            expect(interval.getUpperBound() > 30 || interval.getLowerBound() < 10).to.be.true;
+    });
+
+    it('Range deletion with merges and borrows between successive deletions', () => {
+        // With Order 4
+        let tree: IBplusTree = new IBplusTree(4, 0);
+        tree.insert(new FlatInterval(4, 22));
+        tree.insert(new FlatInterval(6, 11));
+        tree.insert(new FlatInterval(10, 13));
+        tree.insert(new FlatInterval(14, 17));
+        tree.insert(new FlatInterval(20, 32));
+        tree.insert(new FlatInterval(26, 41));
+        tree.insert(new FlatInterval(2, 3));
+        tree.insert(new FlatInterval(3, 13));
+        tree.insert(new FlatInterval(26, 31));
+        tree.insert(new FlatInterval(15, 30));
+        tree.insert(new FlatInterval(22, 24));
+        tree.insert(new FlatInterval(23, 24));
+        tree.insert(new FlatInterval(19, 41));
+
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
+        tree.rangeDelete(0, 100);
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
+
+        // With binary making sure there are several levels in the tree
+        tree = new IBplusTree(2, 0);
+        tree.insert(new FlatInterval(4, 22));
+        tree.insert(new FlatInterval(6, 11));
+        tree.insert(new FlatInterval(10, 13));
+        tree.insert(new FlatInterval(14, 17));
+        tree.insert(new FlatInterval(20, 32));
+        tree.insert(new FlatInterval(26, 41));
+        tree.insert(new FlatInterval(2, 3));
+        tree.insert(new FlatInterval(3, 13));
+        tree.insert(new FlatInterval(26, 31));
+        tree.insert(new FlatInterval(15, 30));
+        tree.insert(new FlatInterval(22, 24));
+        tree.insert(new FlatInterval(23, 24));
+        tree.insert(new FlatInterval(19, 41));
+
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
+        tree.rangeDelete(0, 100);
+        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
     });
 });
