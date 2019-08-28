@@ -21,8 +21,8 @@ export abstract class Interval {
             this.lowerBound = val1;
             this.upperBound = val2;
         } else {
-            this.upperBound = val2;
-            this.lowerBound = val1;
+            this.upperBound = val1;
+            this.lowerBound = val2;
         }
     }
 

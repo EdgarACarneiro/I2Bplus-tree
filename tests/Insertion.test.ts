@@ -1,8 +1,15 @@
-import { IBplusInternalNode, IBplusLeafNode, Interval, FlatInterval } from '../src/internal';
+import { IBplusInternalNode, IBplusLeafNode, Interval, FlatInterval, IBplusTree } from '../src/internal';
 import { expect } from 'chai';
 import 'mocha';
 
 describe('Insertions', () => {
+
+    it('IB Tree Constructor', () => {
+        expect(() => new IBplusTree(1, 10)).to.throw();
+        expect(() => new IBplusTree(2, 2)).to.throw();
+
+        expect(() => new IBplusTree(2, 0)).not.to.throw();
+    });
 
     it('Insert without splits', () => {
         let root: IBplusInternalNode = new IBplusInternalNode(4, null);
