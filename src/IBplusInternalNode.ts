@@ -9,7 +9,7 @@ export class IBplusInternalNode extends IBplusNode {
         private children: Array<IBplusNode> = []) {
         super(order, parent, keys, maximums);
 
-        for (let child of this.children)
+        for (const child of this.children)
             child.setParent(this);
     }
 
@@ -61,7 +61,7 @@ export class IBplusInternalNode extends IBplusNode {
     allRangeSearch(int: Interval) {
         let intervals: Set<FlatInterval> = new Set();
 
-        for (let i: number = 0; i < this.keys.length; ++i)
+        for (let i = 0; i < this.keys.length; ++i)
             if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i]))) {
                 let iterator = this.children[i].allRangeSearch(int).values();
 
@@ -78,7 +78,7 @@ export class IBplusInternalNode extends IBplusNode {
         if (this.children.length == 0)
             return null;
 
-        for (let i: number = 0; i < this.keys.length; ++i)
+        for (let i = 0; i < this.keys.length; ++i)
             if (int.getLowerBound() < this.keys[i])
                 return this.children[i > 0 ? i - 1 : i].findInsertNode(int);
 
@@ -140,7 +140,7 @@ export class IBplusInternalNode extends IBplusNode {
     findInterval(int: Interval): [IBplusLeafNode, number] | null {
         let res: [IBplusLeafNode, number] = null;
 
-        for (let i: number = 0; i < this.keys.length && res == null; ++i)
+        for (let i = 0; i < this.keys.length && res == null; ++i)
             if ((new FlatInterval(this.keys[i], this.maximums[i])).contains(int))
                 res = this.children[i].findInterval(int);
 
@@ -150,7 +150,7 @@ export class IBplusInternalNode extends IBplusNode {
     findIntervalsInRange(int: Interval): Array<[IBplusLeafNode, Interval]> {
         let res: Array<[IBplusLeafNode, Interval]> = [];
 
-        for (let i: number = 0; i < this.keys.length; ++i)
+        for (let i = 0; i < this.keys.length; ++i)
             if ((new FlatInterval(this.keys[i], this.maximums[i])).intersect(int))
                 res.push(...this.children[i].findIntervalsInRange(int));
 
@@ -214,7 +214,7 @@ export class IBplusInternalNode extends IBplusNode {
     }
 
     protected setChildrenParentOnMerge(newParent: IBplusInternalNode): void {
-        for (let child of this.children)
+        for (const child of this.children)
             child.setParent(newParent);
     }
 
