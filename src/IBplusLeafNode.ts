@@ -2,6 +2,12 @@ import { IBplusNode, IBplusInternalNode, Interval, CompoundInterval, FlatInterva
 
 export class IBplusLeafNode extends IBplusNode {
 
+    /**
+     * Sibling Leaf Node that substituted this node, upon the
+     * occurrence of a removal that triggered a merge.
+     */
+    private substSibling: IBplusLeafNode = null;
+
     constructor(order: number = 4,
         parent: IBplusInternalNode = null,
         keys: Array<number> = [],
@@ -12,6 +18,15 @@ export class IBplusLeafNode extends IBplusNode {
 
     getChildren(): Array<Interval> {
         return this.children;
+    }
+
+    /**
+     * Recursively get the node currently replacing this node.
+     * 
+     * @returns the substitution sibling if exists, null otherwise
+     */
+    getSubstituteSibling(): IBplusLeafNode {
+        return this.substSibling;
     }
 
     loneRangeSearch(int: Interval): FlatInterval | null {
@@ -104,6 +119,11 @@ export class IBplusLeafNode extends IBplusNode {
 
     protected setChildrenParentOnMerge(newParent: IBplusNode): void {
         // Children are Intervals, they do not store parent information
+    }
+
+    protected setSubstitutionNode(sibling: IBplusNode): void {
+        // Sibling on merge is forcefully a IBplusLeafNode
+        this.substSibling = <IBplusLeafNode>sibling;
     }
 
     isChildNewRoot(): boolean {

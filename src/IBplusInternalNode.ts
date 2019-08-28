@@ -183,8 +183,29 @@ export class IBplusInternalNode extends IBplusNode {
                 new FlatInterval(lowerBound, upperBound)
             );
 
-        for (let [leaf, int] of foundInts)
+
+        for (let [leaf, int] of foundInts) {
+            // Recursively get the leaf currently substituting this leaf
+            let sibling: IBplusLeafNode = leaf.getSubstituteSibling();
+            while (sibling) {
+                leaf = sibling;
+                sibling = sibling.getSubstituteSibling();
+            }
+
+            let childIdx: number = leaf.getChildren().indexOf(int);
+            if (childIdx < 0)
+                // Previous removals triggered borrows that moved the child
+                if (leaf.getLeftSibling() && int.getLowerBound() <= leaf.getMinKey())
+                    // Sent to left sibling leaf
+                    leaf = <IBplusLeafNode>leaf.getLeftSibling();
+                else if (leaf.getRightSibling() && int.getLowerBound() > leaf.getMinKey())
+                    // Sent to right sibling leaf
+                    leaf = <IBplusLeafNode>leaf.getRightSibling();
+                else
+                    throw Error('Unable to find child in range remove.');
+
             leaf.removeChild(leaf.getChildren().indexOf(int));
+        }
     }
 
     protected setChildParentOnBorrow(newChild: IBplusNode, insertId: number): void {
@@ -195,6 +216,10 @@ export class IBplusInternalNode extends IBplusNode {
     protected setChildrenParentOnMerge(newParent: IBplusInternalNode): void {
         for (let child of this.children)
             child.setParent(newParent);
+    }
+
+    protected setSubstitutionNode(node: IBplusNode): void {
+        // No interest in saving substitution node in Internal Nodes
     }
 
     isChildNewRoot(): boolean {
