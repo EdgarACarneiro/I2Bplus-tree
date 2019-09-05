@@ -1,4 +1,4 @@
-import { IBplusTree, Interval } from '../../src/internal';
+import { IBplusTree, Interval, FlatInterval } from '../../src';
 import { addBenchmarkLogsAndRun } from "./Helpers";
 import { getOrders, getAlphas } from './Settings';
 import { Suite } from "benchmark";
@@ -6,9 +6,10 @@ import { Suite } from "benchmark";
 
 let iterator: number = 0;
 
-const createTree = (intervals: Array<Interval>, order: number, alpha: number): [IBplusTree, Array<Interval>] => {
+const createTree = (intervals: Array<Interval<FlatInterval>>, order: number, alpha: number):
+    [IBplusTree<FlatInterval>, Array<Interval<FlatInterval>>] => {
     let tree = new IBplusTree(order, alpha);
-    let delInts: Array<Interval> = [];
+    let delInts: Array<Interval<FlatInterval>> = [];
     let divider: number = Math.floor(intervals.length / 100);
 
     for (let i = 0; i < intervals.length; ++i) {
@@ -21,9 +22,9 @@ const createTree = (intervals: Array<Interval>, order: number, alpha: number): [
     return [tree, delInts];
 };
 
-const deletionTest = (dataset: Array<Interval>, alpha: number) => {
-    let tree: IBplusTree;
-    let delInts: Array<Interval>;
+const deletionTest = (dataset: Array<Interval<FlatInterval>>, alpha: number) => {
+    let tree: IBplusTree<FlatInterval>;
+    let delInts: Array<Interval<FlatInterval>>;
 
     let suite = (new Suite).on('start cycle', function (event) {
         [tree, delInts] = createTree(dataset, getOrders()[iterator], alpha);
@@ -39,7 +40,7 @@ const deletionTest = (dataset: Array<Interval>, alpha: number) => {
     addBenchmarkLogsAndRun(suite);
 }
 
-export const run = (dataset: Array<Interval>) => {
+export const run = (dataset: Array<Interval<FlatInterval>>) => {
     for (let alpha of getAlphas())
         deletionTest(dataset, alpha);
 };

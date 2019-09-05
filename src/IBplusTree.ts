@@ -1,5 +1,4 @@
-import { IBplusInternalNode, Interval } from './internal';
-import { FlatInterval } from './FlatInterval';
+import { IBplusInternalNode, Interval, FlatInterval } from './internal';
 
 /**
  * Class implementation of a Interval B+-Tree.

@@ -1,1 +1,1 @@
-export { IBplusTree, Interval } from './internal';
+export { IBplusTree, FlatInterval, Interval } from './internal';
