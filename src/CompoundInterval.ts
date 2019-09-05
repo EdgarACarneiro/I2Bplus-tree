@@ -4,11 +4,11 @@ import { Interval, FlatInterval } from './internal'
  * Interval that stores other Intervals.
  * Used to store the original Intervals when data splits occur.
  */
-export class CompoundInterval extends Interval {
+export class CompoundInterval<T extends FlatInterval<T>> extends Interval<T> {
 
-    private originalInterval: Interval;
+    private originalInterval: T;
 
-    constructor(val1: number, val2: number, originalInterval: Interval) {
+    constructor(val1: number, val2: number, originalInterval: T) {
         super(val1, val2);
         this.originalInterval = originalInterval;
     }
@@ -28,13 +28,13 @@ export class CompoundInterval extends Interval {
         this.originalInterval.setData(data)
     }
 
-    equals(int: Interval): boolean {
+    equals(int: Interval<T>): boolean {
         return this.upperBound == int.getUpperBound() &&
             this.lowerBound == int.getLowerBound() &&
             this.originalInterval.getData() == int.getData();
     }
 
-    getOriginalInterval(): FlatInterval {
+    getOriginalInterval(): FlatInterval<T> {
         return this.originalInterval.getOriginalInterval();
     }
 
