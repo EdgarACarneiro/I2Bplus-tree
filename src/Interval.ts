@@ -4,7 +4,7 @@ import { FlatInterval } from "./FlatInterval";
  * Class to implement a numeric interval [a, b].
  * Using an abstract class to implement the Composite design pattern.
  */
-export abstract class Interval<T extends FlatInterval<T>> {
+export abstract class Interval<T extends FlatInterval> {
 
     /**
      * This interval's lower bound
@@ -81,5 +81,5 @@ export abstract class Interval<T extends FlatInterval<T>> {
             this.lowerBound <= int.getLowerBound();
     }
 
-    abstract getOriginalInterval(): FlatInterval<T>;
+    abstract getOriginalInterval(): T;
 }

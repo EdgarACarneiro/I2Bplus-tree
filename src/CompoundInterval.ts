@@ -4,7 +4,7 @@ import { Interval, FlatInterval } from './internal'
  * Interval that stores other Intervals.
  * Used to store the original Intervals when data splits occur.
  */
-export class CompoundInterval<T extends FlatInterval<T>> extends Interval<T> {
+export class CompoundInterval<T extends FlatInterval> extends Interval<T> {
 
     private originalInterval: T;
 
@@ -34,7 +34,7 @@ export class CompoundInterval<T extends FlatInterval<T>> extends Interval<T> {
             this.originalInterval.getData() == int.getData();
     }
 
-    getOriginalInterval(): FlatInterval<T> {
+    getOriginalInterval(): T {
         return this.originalInterval.getOriginalInterval();
     }
 
