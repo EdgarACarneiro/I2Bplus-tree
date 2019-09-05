@@ -1,23 +1,23 @@
 import { IBplusNode, IBplusLeafNode, Interval, FlatInterval } from "./internal"
 
-export class IBplusInternalNode extends IBplusNode {
+export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
 
     constructor(order: number = 4,
-        parent: IBplusInternalNode = null,
+        parent: IBplusInternalNode<T> = null,
         keys: Array<number> = [],
         maximums: Array<number> = [],
-        private children: Array<IBplusNode> = []) {
+        private children: Array<IBplusNode<T>> = []) {
         super(order, parent, keys, maximums);
 
         for (const child of this.children)
             child.setParent(this);
     }
 
-    getChildren(): Array<IBplusNode> {
+    getChildren(): Array<IBplusNode<T>> {
         return this.children;
     }
 
-    setChildren(children: Array<IBplusNode>): void {
+    setChildren(children: Array<IBplusNode<T>>): void {
         this.children = children;
     }
 
@@ -26,7 +26,7 @@ export class IBplusInternalNode extends IBplusNode {
      * 
      * @param node the child
      */
-    updateMax(node: IBplusNode): void {
+    updateMax(node: IBplusNode<T>): void {
         let newMax: number = node.getMax();
         let prevMax: number = this.getMax();
 
@@ -41,7 +41,7 @@ export class IBplusInternalNode extends IBplusNode {
      * 
      * @param node the child
      */
-    updateMin(node: IBplusNode): void {
+    updateMin(node: IBplusNode<T>): void {
         let newMin: number = node.getMinKey();
         let prevMin: number = this.getMinKey();
 
@@ -51,15 +51,15 @@ export class IBplusInternalNode extends IBplusNode {
             this.parent.updateMin(this);
     }
 
-    loneRangeSearch(int: Interval) {
+    loneRangeSearch(int: Interval<T>) {
         for (let i: number = 0; i < this.keys.length; ++i)
             if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i])))
                 return this.children[i].loneRangeSearch(int)
         return null;
     }
 
-    allRangeSearch(int: Interval) {
-        let intervals: Set<FlatInterval> = new Set();
+    allRangeSearch(int: Interval<T>) {
+        let intervals: Set<T> = new Set();
 
         for (let i = 0; i < this.keys.length; ++i)
             if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i]))) {
@@ -74,7 +74,7 @@ export class IBplusInternalNode extends IBplusNode {
         return intervals;
     }
 
-    findInsertNode(int: Interval): IBplusLeafNode | null {
+    findInsertNode(int: Interval<T>): IBplusLeafNode<T> | null {
         if (this.children.length == 0)
             return null;
 
@@ -92,7 +92,7 @@ export class IBplusInternalNode extends IBplusNode {
      * @param original The node that was split
      * @param newNode The node that was created
      */
-    updateWithNewNode(original: IBplusNode, newNode: IBplusNode): void {
+    updateWithNewNode(original: IBplusNode<T>, newNode: IBplusNode<T>): void {
         let originalIdx: number = this.children.indexOf(original);
         this.maximums[originalIdx] = original.getMax();
 
@@ -120,14 +120,14 @@ export class IBplusInternalNode extends IBplusNode {
         let sibSize: number = this.order + 1 - divIdx; //Need +1 because of the invariant violation
 
         // Divide keys, maximums and children by this node and its sibling
-        let sibling: IBplusInternalNode = new IBplusInternalNode(
+        let sibling: IBplusInternalNode<T> = new IBplusInternalNode<T>(
             this.order,
             this.parent,
             this.keys.splice(divIdx, sibSize),
             this.maximums.splice(divIdx, sibSize),
             this.children.splice(divIdx, sibSize)
         );
-        let rs: IBplusNode = this.getRightSibling();
+        let rs: IBplusNode<T> = this.getRightSibling();
         if (rs != null) rs.setLeftSibling(sibling);
         sibling.setRightSibling(rs);
 
@@ -137,8 +137,8 @@ export class IBplusInternalNode extends IBplusNode {
         this.parent.updateWithNewNode(this, sibling);
     }
 
-    findInterval(int: Interval): [IBplusLeafNode, number] | null {
-        let res: [IBplusLeafNode, number] = null;
+    findInterval(int: Interval<T>): [IBplusLeafNode<T>, number] | null {
+        let res: [IBplusLeafNode<T>, number] = null;
 
         for (let i = 0; i < this.keys.length && res == null; ++i)
             if ((new FlatInterval(this.keys[i], this.maximums[i])).contains(int))
@@ -147,8 +147,8 @@ export class IBplusInternalNode extends IBplusNode {
         return res;
     }
 
-    findIntervalsInRange(int: Interval): Array<[IBplusLeafNode, Interval]> {
-        let res: Array<[IBplusLeafNode, Interval]> = [];
+    findIntervalsInRange(int: Interval<T> | FlatInterval): Array<[IBplusLeafNode<T>, Interval<T>]> {
+        let res: Array<[IBplusLeafNode<T>, Interval<T>]> = [];
 
         for (let i = 0; i < this.keys.length; ++i)
             if ((new FlatInterval(this.keys[i], this.maximums[i])).intersect(int))
@@ -163,8 +163,8 @@ export class IBplusInternalNode extends IBplusNode {
      * 
      * @param int The interval to be deleted
      */
-    delete(int: Interval): void {
-        let found: [IBplusLeafNode, number] = this.findInterval(int);
+    delete(int: Interval<T>): void {
+        let found: [IBplusLeafNode<T>, number] = this.findInterval(int);
 
         if (found != null)
             found[0].removeChild(found[1]);
@@ -178,7 +178,7 @@ export class IBplusInternalNode extends IBplusNode {
      * @param upperBound the range's upper bound
      */
     rangeDelete(lowerBound: number, upperBound: number): void {
-        let foundInts: Array<[IBplusLeafNode, Interval]> =
+        let foundInts: Array<[IBplusLeafNode<T>, Interval<T>]> =
             this.findIntervalsInRange(
                 new FlatInterval(lowerBound, upperBound)
             );
@@ -186,7 +186,7 @@ export class IBplusInternalNode extends IBplusNode {
 
         for (let [leaf, int] of foundInts) {
             // Recursively get the leaf currently substituting this leaf
-            let sibling: IBplusLeafNode = leaf.getSubstituteSibling();
+            let sibling: IBplusLeafNode<T> = leaf.getSubstituteSibling();
             while (sibling) {
                 leaf = sibling;
                 sibling = sibling.getSubstituteSibling();
@@ -197,10 +197,10 @@ export class IBplusInternalNode extends IBplusNode {
                 // Previous removals triggered borrows that moved the child
                 if (leaf.getLeftSibling() && int.getLowerBound() <= leaf.getMinKey())
                     // Sent to left sibling leaf
-                    leaf = <IBplusLeafNode>leaf.getLeftSibling();
+                    leaf = <IBplusLeafNode<T>>leaf.getLeftSibling();
                 else if (leaf.getRightSibling() && int.getLowerBound() > leaf.getMinKey())
                     // Sent to right sibling leaf
-                    leaf = <IBplusLeafNode>leaf.getRightSibling();
+                    leaf = <IBplusLeafNode<T>>leaf.getRightSibling();
                 else
                     throw Error('Unable to find child in range remove.');
 
@@ -208,17 +208,17 @@ export class IBplusInternalNode extends IBplusNode {
         }
     }
 
-    protected setChildParentOnBorrow(newChild: IBplusNode, insertId: number): void {
+    protected setChildParentOnBorrow(newChild: IBplusNode<T>, insertId: number): void {
         this.children.splice(insertId, 0, newChild);
         newChild.setParent(this);
     }
 
-    protected setChildrenParentOnMerge(newParent: IBplusInternalNode): void {
+    protected setChildrenParentOnMerge(newParent: IBplusInternalNode<T>): void {
         for (const child of this.children)
             child.setParent(newParent);
     }
 
-    protected setSubstitutionNode(node: IBplusNode): void {
+    protected setSubstitutionNode(node: IBplusNode<T>): void {
         // No interest in saving substitution node in Internal Nodes
     }
 

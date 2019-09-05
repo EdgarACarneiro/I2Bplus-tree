@@ -12,7 +12,8 @@ describe('Insertions', () => {
     });
 
     it('Insert without splits', () => {
-        let root: IBplusInternalNode = new IBplusInternalNode(4, null);
+        let root: IBplusInternalNode<FlatInterval> =
+            new IBplusInternalNode<FlatInterval>(4, null);
         root.insert(new FlatInterval(4, 22), 0);
         root.insert(new FlatInterval(6, 11), 0);
         root.insert(new FlatInterval(10, 13), 0);
@@ -88,7 +89,8 @@ describe('Insertions', () => {
      * Binary tree is the best tree to test splits
      */
     it('Insert with splits', () => {
-        let root: IBplusInternalNode = new IBplusInternalNode(2, null);
+        let root: IBplusInternalNode<FlatInterval> =
+            new IBplusInternalNode<FlatInterval>(2, null);
         root.insert(new FlatInterval(4, 22), 0);
         root.insert(new FlatInterval(6, 11), 0);
         root.insert(new FlatInterval(10, 13), 0);

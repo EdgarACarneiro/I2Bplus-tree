@@ -4,7 +4,7 @@ import { FlatInterval } from "./FlatInterval";
  * Class to implement a numeric interval [a, b].
  * Using an abstract class to implement the Composite design pattern.
  */
-export abstract class Interval {
+export abstract class Interval<T extends FlatInterval> {
 
     /**
      * This interval's lower bound
@@ -50,16 +50,18 @@ export abstract class Interval {
      * 
      * @param int The interval to compare with
      */
-    sort(int: Interval): number {
+    sort(int: Interval<T>): number {
         return this.upperBound - int.getLowerBound()
     }
 
     /**
      * Checks if two interval intersect each other and returns true upon intersection, false otherwise.
+     * Necessary the '| FlatInterval'  because of some supposed problem with ts.
+     * For more info check the issue: https://github.com/Microsoft/TypeScript/issues/28154
      * 
      * @param int The interval to check intersection
      */
-    intersect(int: Interval): boolean {
+    intersect(int: Interval<T> | FlatInterval): boolean {
         return !(int.getLowerBound() > this.upperBound ||
             int.getUpperBound() < this.lowerBound);
     }
@@ -69,17 +71,17 @@ export abstract class Interval {
      * 
      * @param int the interval to compare with
      */
-    abstract equals(int: Interval): boolean;
+    abstract equals(int: Interval<T>): boolean;
 
     /**
      * Returns true if this interval contains the given interval, false otherwise.
      * 
      * @param int the interval that might be contained
      */
-    contains(int: Interval): boolean {
+    contains(int: Interval<T>): boolean {
         return this.upperBound >= int.getUpperBound() &&
             this.lowerBound <= int.getLowerBound();
     }
 
-    abstract getOriginalInterval(): FlatInterval;
+    abstract getOriginalInterval(): T;
 }

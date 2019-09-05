@@ -3,7 +3,7 @@ import { Interval } from "./Interval";
 /**
  * Interval that stores data instead of other Intervals
  */
-export class FlatInterval extends Interval {
+export class FlatInterval extends Interval<FlatInterval> {
 
     /**
      * Data stored by this Interval.
@@ -26,13 +26,13 @@ export class FlatInterval extends Interval {
         this.data = data;
     }
 
-    equals(int: Interval): boolean {
+    equals<T extends FlatInterval>(int: Interval<T>): boolean {
         return this.upperBound == int.getUpperBound() &&
             this.lowerBound == int.getLowerBound() &&
             this.data == int.getData();
     }
 
-    getOriginalInterval(): FlatInterval {
+    getOriginalInterval(): this {
         return this;
     }
 

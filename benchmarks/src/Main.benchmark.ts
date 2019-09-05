@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, existsSync, mkdirSync, writeFile, appendFileSync } from "fs";
-import { FlatInterval, Interval } from '../../src/internal';
+import { FlatInterval, Interval } from '../../src';
 import { getDatasetsDir, getOutputDir, getOutputPath } from './Settings'
 import { run as runTreeInsertion } from './TreeInsertion.benchmark'
 import { run as runInsertion } from './Insertion.benchmark'
@@ -9,8 +9,8 @@ import { run as runSearch } from './Search.benchmark'
 
 const datasetsDir = getDatasetsDir();
 
-const getIntervals = (filename: string): Array<Interval> => {
-    let intervals: Array<Interval> =
+const getIntervals = (filename: string): Array<Interval<FlatInterval>> => {
+    let intervals: Array<Interval<FlatInterval>> =
         readFileSync(`${datasetsDir}/${filename}`)
             .toString()
             .split("\n")
@@ -40,7 +40,7 @@ writeFile(getOutputPath(), '',
 
 // Performing benchmarking tests on all datasets
 for (let name of datasetNames) {
-    const dataset: Array<Interval> =
+    const dataset: Array<Interval<FlatInterval>> =
         getIntervals(name);
 
     console.log(`::: Dataset ${name} with ${dataset.length} intervals :::`);

@@ -1,13 +1,18 @@
-import { IBplusLeafNode, IBplusInternalNode, Interval, FlatInterval } from './internal'
+import {
+    IBplusLeafNode,
+    IBplusInternalNode,
+    Interval,
+    FlatInterval
+} from './internal'
 
 /**
  * Class implementation of a generic Interval B+-Tree node
  */
-export abstract class IBplusNode {
+export abstract class IBplusNode<T extends FlatInterval> {
 
-    private rightSibling: IBplusNode = null;
+    private rightSibling: IBplusNode<T> = null;
 
-    private leftSibling: IBplusNode = null;
+    private leftSibling: IBplusNode<T> = null;
 
     /**
      * @param order Node's order. Must be the same in all tree nodes.
@@ -16,7 +21,7 @@ export abstract class IBplusNode {
      * @param maximums Maximum end point of the intervals indexed by its subtree
      */
     constructor(public readonly order: number,
-        protected parent: IBplusInternalNode,
+        protected parent: IBplusInternalNode<T>,
         protected keys: Array<number>,
         protected maximums: Array<number>) { }
 
@@ -25,7 +30,7 @@ export abstract class IBplusNode {
     /**
      * Get this node's parent node
      */
-    getParent(): IBplusInternalNode | null {
+    getParent(): IBplusInternalNode<T> | null {
         return this.parent;
     }
 
@@ -34,7 +39,7 @@ export abstract class IBplusNode {
      * 
      * @param newParent new parent node
      */
-    setParent(newParent: IBplusInternalNode): void {
+    setParent(newParent: IBplusInternalNode<T>): void {
         this.parent = newParent;
     }
 
@@ -55,7 +60,7 @@ export abstract class IBplusNode {
     /**
      * Gets this node right sibling.
      */
-    getRightSibling(): IBplusNode {
+    getRightSibling(): IBplusNode<T> {
         return this.rightSibling;
     }
 
@@ -64,14 +69,14 @@ export abstract class IBplusNode {
      * 
      * @param sibling new right sibling
      */
-    setRightSibling(sibling: IBplusNode): void {
+    setRightSibling(sibling: IBplusNode<T>): void {
         this.rightSibling = sibling;
     }
 
     /**
      * Gets this node left sibling.
      */
-    getLeftSibling(): IBplusNode {
+    getLeftSibling(): IBplusNode<T> {
         return this.leftSibling;
     }
 
@@ -80,7 +85,7 @@ export abstract class IBplusNode {
      * 
      * @param sibling new left sibling
      */
-    setLeftSibling(sibling: IBplusNode): void {
+    setLeftSibling(sibling: IBplusNode<T>): void {
         this.leftSibling = sibling;
     }
 
@@ -106,14 +111,14 @@ export abstract class IBplusNode {
      * 
      * @param int search interval
      */
-    abstract loneRangeSearch(int: Interval): FlatInterval | null;
+    abstract loneRangeSearch(int: Interval<T>): T | null;
 
     /**
      * Returns a set with the original intervals that intersect with the given search interval.
      * 
      * @param int search interval
      */
-    abstract allRangeSearch(int: Interval): Set<FlatInterval>;
+    abstract allRangeSearch(int: Interval<T>): Set<T>;
 
     /**
      * Returns the Leaf Node where the new interval shall be inserted.
@@ -121,7 +126,7 @@ export abstract class IBplusNode {
      * 
      * @param int the search interval
      */
-    abstract findInsertNode(int: Interval): IBplusLeafNode | null;
+    abstract findInsertNode(int: Interval<T>): IBplusLeafNode<T> | null;
 
     /**
      * Splits a Node into two nodes and distibute in half the original node children.
@@ -129,7 +134,7 @@ export abstract class IBplusNode {
      * 
      * @param int The interval being inserted that triggered this split
      */
-    protected abstract split(int: Interval): void;
+    protected abstract split(int: Interval<T>): void;
 
     /**
      * Update the key and the maximum representing a node in its parent
@@ -148,9 +153,9 @@ export abstract class IBplusNode {
      * @param int the interval to be inserted
      * @param alpha the value of alpha used in the PickSplitPoint algorithm. If alpha <= 0, time splits aren't used.
     */
-    insert(int: Interval, alpha: number): void {
+    insert(int: Interval<T>, alpha: number): void {
         // Perform a search to determine what leaf the new record should go into.
-        let insertionNode: IBplusLeafNode = this.findInsertNode(int);
+        let insertionNode: IBplusLeafNode<T> = this.findInsertNode(int);
 
         // No leafs in the tree
         if (insertionNode === null && this instanceof IBplusInternalNode) {
@@ -179,16 +184,19 @@ export abstract class IBplusNode {
      * 
      * @param int the interval to be found
      */
-    abstract findInterval(int: Interval): [IBplusLeafNode, number] | null;
+    abstract findInterval(int: Interval<T>): [IBplusLeafNode<T>, number] | null;
 
     /**
      * Finds all the intervals in the tree belonging to the given interval.
      * Returns an array of Pairs containing the interval and the leaf where
      * it's stored.
      * 
+     * Necessary the '| FlatInterval'  because of some supposed problem with ts.
+     * For more info check the issue: https://github.com/Microsoft/TypeScript/issues/28154
+     * 
      * @param int the interval defining the limits for the found intervals.
      */
-    abstract findIntervalsInRange(int: Interval): Array<[IBplusLeafNode, Interval]>;
+    abstract findIntervalsInRange(int: Interval<T> | FlatInterval): Array<[IBplusLeafNode<T>, Interval<T>]>;
 
     /**
      * Template Method.
@@ -197,7 +205,7 @@ export abstract class IBplusNode {
      * @param newChild new child
      * @param insertId insertion idx
      */
-    protected abstract setChildParentOnBorrow(newChild: IBplusNode | Interval, insertId: number): void;
+    protected abstract setChildParentOnBorrow(newChild: IBplusNode<T> | Interval<T>, insertId: number): void;
 
     /**
      * Remove an entry from the sibling node and add it to this node
@@ -206,7 +214,7 @@ export abstract class IBplusNode {
      * @param insertId The index where the element will be inserted
      * @param removeId The index of the element going to be removed from the sibling
      */
-    protected borrow(sibling: IBplusNode, insertId: number, removeId: number): void {
+    protected borrow(sibling: IBplusNode<T>, insertId: number, removeId: number): void {
         this.keys.splice(insertId, 0, sibling.keys.splice(removeId, 1)[0]);
         this.maximums.splice(insertId, 0, sibling.maximums.splice(removeId, 1)[0]);
 
@@ -222,7 +230,7 @@ export abstract class IBplusNode {
      * 
      * @param newParent The children new parent
      */
-    protected abstract setChildrenParentOnMerge(newParent: IBplusNode): void;
+    protected abstract setChildrenParentOnMerge(newParent: IBplusNode<T>): void;
 
     /**
      * Template Method.
@@ -230,7 +238,7 @@ export abstract class IBplusNode {
      * 
      * @param node the substitution node
      */
-    protected abstract setSubstitutionNode(node: IBplusNode): void;
+    protected abstract setSubstitutionNode(node: IBplusNode<T>): void;
 
     /**
      * Merge this node into the given node
@@ -238,7 +246,7 @@ export abstract class IBplusNode {
      * @param sibling The sibling to merge with
      * @param id The position where this node elements will be inserted
      */
-    protected merge(sibling: IBplusNode, id: number): void {
+    protected merge(sibling: IBplusNode<T>, id: number): void {
         sibling.keys.splice(id, 0, ...this.keys);
         sibling.maximums.splice(id, 0, ...this.maximums);
         sibling.getChildren().splice(id, 0, ...this.getChildren());
