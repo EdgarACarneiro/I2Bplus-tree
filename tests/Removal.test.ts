@@ -5,7 +5,8 @@ import 'mocha';
 describe('Removals', () => {
 
     it('Simple Delete (without borrowing or merging)', () => {
-        let root: IBplusInternalNode = new IBplusInternalNode(4, null);
+        let root: IBplusInternalNode<FlatInterval> =
+            new IBplusInternalNode<FlatInterval>(4, null);
         root.insert(new FlatInterval(4, 22), 0);
         root.insert(new FlatInterval(6, 11), 0);
         root.insert(new FlatInterval(10, 13), 0);
@@ -35,7 +36,8 @@ describe('Removals', () => {
     });
 
     it('Delete with Borrowing', () => {
-        let root: IBplusInternalNode = new IBplusInternalNode(4, null);
+        let root: IBplusInternalNode<FlatInterval> =
+            new IBplusInternalNode<FlatInterval>(4, null);
         root.insert(new FlatInterval(4, 22), 0);
         root.insert(new FlatInterval(6, 11), 0);
         root.insert(new FlatInterval(10, 13), 0);
@@ -86,7 +88,8 @@ describe('Removals', () => {
     });
 
     it('Delete with Merging', () => {
-        let root: IBplusInternalNode = new IBplusInternalNode(4, null);
+        let root: IBplusInternalNode<FlatInterval> =
+            new IBplusInternalNode<FlatInterval>(4, null);
         root.insert(new FlatInterval(4, 22), 0);
         root.insert(new FlatInterval(6, 11), 0);
         root.insert(new FlatInterval(10, 13), 0);
@@ -134,7 +137,7 @@ describe('Removals', () => {
 
     it('Simple range deletion', () => {
         // With Order 4
-        let tree: IBplusTree = new IBplusTree(4, 0);
+        let tree: IBplusTree<FlatInterval> = new IBplusTree<FlatInterval>(4, 0);
         tree.insert(new FlatInterval(4, 22));
         tree.insert(new FlatInterval(6, 11));
         tree.insert(new FlatInterval(10, 13)); // del
@@ -186,7 +189,7 @@ describe('Removals', () => {
 
     it('Range deletion with merges and borrows between successive deletions', () => {
         // With Order 4
-        let tree: IBplusTree = new IBplusTree(4, 0);
+        let tree: IBplusTree<FlatInterval> = new IBplusTree<FlatInterval>(4, 0);
         tree.insert(new FlatInterval(4, 22));
         tree.insert(new FlatInterval(6, 11));
         tree.insert(new FlatInterval(10, 13));
@@ -206,7 +209,7 @@ describe('Removals', () => {
         expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
 
         // With binary making sure there are several levels in the tree
-        tree = new IBplusTree(2, 0);
+        tree = new IBplusTree<FlatInterval>(2, 0);
         tree.insert(new FlatInterval(4, 22));
         tree.insert(new FlatInterval(6, 11));
         tree.insert(new FlatInterval(10, 13));

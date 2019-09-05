@@ -56,10 +56,12 @@ export abstract class Interval<T extends FlatInterval> {
 
     /**
      * Checks if two interval intersect each other and returns true upon intersection, false otherwise.
+     * Necessary the '| FlatInterval'  because of some supposed problem with ts.
+     * For more info check the issue: https://github.com/Microsoft/TypeScript/issues/28154
      * 
      * @param int The interval to check intersection
      */
-    intersect(int: Interval<T>): boolean {
+    intersect(int: Interval<T> | FlatInterval): boolean {
         return !(int.getLowerBound() > this.upperBound ||
             int.getUpperBound() < this.lowerBound);
     }

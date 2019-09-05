@@ -5,7 +5,7 @@ import 'mocha';
 describe('Search', () => {
     it('Lone Search', () => {
         // With Order 4
-        let tree: IBplusTree = new IBplusTree(4, 0);
+        let tree: IBplusTree<FlatInterval> = new IBplusTree<FlatInterval>(4, 0);
         tree.insert(new FlatInterval(4, 22));
         tree.insert(new FlatInterval(6, 11));
         tree.insert(new FlatInterval(10, 13));
@@ -55,7 +55,7 @@ describe('Search', () => {
 
     it('Range Search', () => {
         // With Order 4
-        let tree: IBplusTree = new IBplusTree(4, 0);
+        let tree: IBplusTree<FlatInterval> = new IBplusTree<FlatInterval>(4, 0);
         tree.insert(new FlatInterval(4, 22));
         tree.insert(new FlatInterval(6, 11));
         tree.insert(new FlatInterval(10, 13));

@@ -8,9 +8,9 @@ import { FlatInterval } from './FlatInterval';
  * Based on Article: https://pdfs.semanticscholar.org/1343/91e2537a8a9db15a1b5cce2ef66aa3352506.pdf
  * B+tree where each node is augmented with the same kind of information as in the binary Interval-trees.
  */
-export class IBplusTree {
+export class IBplusTree<T extends FlatInterval> {
 
-    private root: IBplusInternalNode;
+    private root: IBplusInternalNode<T>;
 
     /**
      * IBplusTree Constructor.
@@ -29,7 +29,7 @@ export class IBplusTree {
         if (alpha >= 1)
             throw new Error('Alpha can either be negative or a value belonging to ]0, 1[');
 
-        this.root = new IBplusInternalNode(order);
+        this.root = new IBplusInternalNode<T>(order);
     }
 
     /**
@@ -37,7 +37,7 @@ export class IBplusTree {
      * 
      * @param int The interval to be inserted
      */
-    insert(int: Interval): void {
+    insert(int: Interval<T>): void {
         this.root.insert(int, this.alpha);
 
         while (!this.root.isRoot())
@@ -49,12 +49,12 @@ export class IBplusTree {
      * 
      * @param int The Interval to be removed
      */
-    delete(int: Interval): void {
+    delete(int: Interval<T>): void {
         this.root.delete(int);
 
         if (this.root.isChildNewRoot())
             // It is forcibly of type IBPlusInternalNode
-            this.root = <IBplusInternalNode>this.root.getChildren()[0];
+            this.root = <IBplusInternalNode<T>>this.root.getChildren()[0];
     }
 
     /**
@@ -69,7 +69,7 @@ export class IBplusTree {
 
         while (this.root.isChildNewRoot())
             // It is forcibly of type IBPlusInternalNode
-            this.root = <IBplusInternalNode>this.root.getChildren()[0];
+            this.root = <IBplusInternalNode<T>>this.root.getChildren()[0];
     }
 
     /**
@@ -79,7 +79,7 @@ export class IBplusTree {
      * @param int The query interval
      * @returns the FlatInterval that was found, null if none intersected.
      */
-    loneRangeSearch(int: Interval): FlatInterval | null {
+    loneRangeSearch(int: Interval<T>): T | null {
         return this.root.loneRangeSearch(int);
     }
 
@@ -89,7 +89,7 @@ export class IBplusTree {
      * @param int The interval corresponding to the range query
      * @returns  Set of intervals that intersect the range
      */
-    allRangeSearch(int: Interval): Set<FlatInterval> {
+    allRangeSearch(int: Interval<T>): Set<T> {
         return this.root.allRangeSearch(int);
     }
 }

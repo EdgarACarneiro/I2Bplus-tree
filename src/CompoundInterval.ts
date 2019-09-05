@@ -6,9 +6,9 @@ import { Interval, FlatInterval } from './internal'
  */
 export class CompoundInterval<T extends FlatInterval> extends Interval<T> {
 
-    private originalInterval: T;
+    private originalInterval: Interval<T>;
 
-    constructor(val1: number, val2: number, originalInterval: T) {
+    constructor(val1: number, val2: number, originalInterval: Interval<T>) {
         super(val1, val2);
         this.originalInterval = originalInterval;
     }
