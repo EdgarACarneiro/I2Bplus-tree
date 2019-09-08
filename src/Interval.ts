@@ -40,10 +40,6 @@ export abstract class Interval<T extends FlatInterval> {
         return this.upperBound;
     }
 
-    abstract getData(): any;
-
-    abstract setData(data: any);
-
     /**
      * If this interval is bigger than the one given return positive,
      * if inferior negative and equal return zero.

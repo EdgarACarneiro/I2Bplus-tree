@@ -13,25 +13,9 @@ export class CompoundInterval<T extends FlatInterval> extends Interval<T> {
         this.originalInterval = originalInterval;
     }
 
-    /**
-     * Get the data that the Interval stored by this Interval stores.
-     */
-    getData(): any {
-        return this.originalInterval.getData();
-    }
-
-    /**
-     * Set the data that the Interval stored by this Interval stores.
-     * @param data the new data value
-     */
-    setData(data: any) {
-        this.originalInterval.setData(data)
-    }
-
     equals(int: Interval<T>): boolean {
         return this.upperBound == int.getUpperBound() &&
-            this.lowerBound == int.getLowerBound() &&
-            this.originalInterval.getData() == int.getData();
+            this.lowerBound == int.getLowerBound();
     }
 
     getOriginalInterval(): T {

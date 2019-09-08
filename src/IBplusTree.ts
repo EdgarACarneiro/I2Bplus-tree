@@ -36,7 +36,7 @@ export class IBplusTree<T extends FlatInterval> {
      * 
      * @param int The interval to be inserted
      */
-    insert(int: Interval<T>): void {
+    insert(int: T): void {
         this.root.insert(int, this.alpha);
 
         while (!this.root.isRoot())
@@ -48,7 +48,7 @@ export class IBplusTree<T extends FlatInterval> {
      * 
      * @param int The Interval to be removed
      */
-    delete(int: Interval<T>): void {
+    delete(int: T): void {
         this.root.delete(int);
 
         if (this.root.isChildNewRoot())
@@ -83,7 +83,7 @@ export class IBplusTree<T extends FlatInterval> {
     }
 
     /**
-     * Fin all intervals stored in the tree that intersect the given range.
+     * Find all intervals stored in the tree that intersect the given range.
      * 
      * @param int The interval corresponding to the range query
      * @returns  Set of intervals that intersect the range
