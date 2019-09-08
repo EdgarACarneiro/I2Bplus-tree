@@ -51,14 +51,14 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
             this.parent.updateMin(this);
     }
 
-    loneRangeSearch(int: Interval<T>) {
+    loneRangeSearch(int: FlatInterval) {
         for (let i: number = 0; i < this.keys.length; ++i)
             if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i])))
                 return this.children[i].loneRangeSearch(int)
         return null;
     }
 
-    allRangeSearch(int: Interval<T>) {
+    allRangeSearch(int: FlatInterval) {
         let intervals: Set<T> = new Set();
 
         for (let i = 0; i < this.keys.length; ++i)

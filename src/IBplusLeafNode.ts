@@ -35,14 +35,14 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         return this.substSibling;
     }
 
-    loneRangeSearch(int: Interval<T>): T | null {
+    loneRangeSearch(int: FlatInterval): T | null {
         for (let child of this.children)
             if (child.intersect(int))
                 return child.getOriginalInterval();
         return null;
     }
 
-    allRangeSearch(int: Interval<T>) {
+    allRangeSearch(int: FlatInterval) {
         let intervals: Set<T> = new Set();
 
         for (let child of this.children)

@@ -111,14 +111,14 @@ export abstract class IBplusNode<T extends FlatInterval> {
      * 
      * @param int search interval
      */
-    abstract loneRangeSearch(int: Interval<T>): T | null;
+    abstract loneRangeSearch(int: FlatInterval): T | null;
 
     /**
      * Returns a set with the original intervals that intersect with the given search interval.
      * 
      * @param int search interval
      */
-    abstract allRangeSearch(int: Interval<T>): Set<T>;
+    abstract allRangeSearch(int: FlatInterval): Set<T>;
 
     /**
      * Returns the Leaf Node where the new interval shall be inserted.

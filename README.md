@@ -16,7 +16,7 @@
 
 # Usage
 
-To use this tree, implement a class that __extend the FlatInterval__ class, defining the information that will be on leaves there. Notice that you might also want to override the equals, since you might also want the extra information being stored in the Intervals to be used in the comparison.
+To suit the _IBplusTree_ to your needs, implement a class that __extend the FlatInterval__ class, defining the information that will be on leaves there. Notice that you might also want to override the equals, since you might also want the extra information being stored in the Intervals to be used in the comparison.
 
 ---
 

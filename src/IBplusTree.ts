@@ -75,20 +75,24 @@ export class IBplusTree<T extends FlatInterval> {
      * Gets the Interval with the lowest bound that intersects the
      * given interval.
      * 
-     * @param int The query interval
+     * @param lowerBound The interval query lower bound
+     * @param upperBound The interval query upper bound
      * @returns the FlatInterval that was found, null if none intersected.
      */
-    loneRangeSearch(int: Interval<T>): T | null {
-        return this.root.loneRangeSearch(int);
+    loneRangeSearch(lowerBound: number, upperBound: number): T | null {
+        return this.root.loneRangeSearch(new FlatInterval(lowerBound, upperBound));
     }
+
+
 
     /**
      * Find all intervals stored in the tree that intersect the given range.
      * 
-     * @param int The interval corresponding to the range query
+     * @param lowerBound The range query lower bound
+     * @param upperBound The range query upper bound
      * @returns  Set of intervals that intersect the range
      */
-    allRangeSearch(int: Interval<T>): Set<T> {
-        return this.root.allRangeSearch(int);
+    allRangeSearch(lowerBound: number, upperBound: number): Set<T> {
+        return this.root.allRangeSearch(new FlatInterval(lowerBound, upperBound));
     }
 }

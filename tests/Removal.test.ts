@@ -152,13 +152,13 @@ describe('Removals', () => {
         tree.insert(new FlatInterval(23, 24)); // del
         tree.insert(new FlatInterval(19, 41));
 
-        expect(tree.allRangeSearch(new FlatInterval(10, 30)).size).to.equal(12);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
+        expect(tree.allRangeSearch(10, 30).size).to.equal(12);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(13);
 
         tree.rangeDelete(10, 30);
-        expect(tree.allRangeSearch(new FlatInterval(10, 30)).size).to.equal(7);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(8);
-        for (let interval of Array.from(tree.allRangeSearch(new FlatInterval(0, 100))))
+        expect(tree.allRangeSearch(10, 30).size).to.equal(7);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(8);
+        for (let interval of Array.from(tree.allRangeSearch(0, 100)))
             expect(interval.getUpperBound() > 30 || interval.getLowerBound() < 10).to.be.true;
 
         // With binary making sure there are several levels in the tree
@@ -177,13 +177,13 @@ describe('Removals', () => {
         tree.insert(new FlatInterval(23, 24));
         tree.insert(new FlatInterval(19, 41));
 
-        expect(tree.allRangeSearch(new FlatInterval(10, 30)).size).to.equal(12);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
+        expect(tree.allRangeSearch(10, 30).size).to.equal(12);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(13);
 
         tree.rangeDelete(10, 30);
-        expect(tree.allRangeSearch(new FlatInterval(10, 30)).size).to.equal(7);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(8);
-        for (let interval of Array.from(tree.allRangeSearch(new FlatInterval(0, 100))))
+        expect(tree.allRangeSearch(10, 30).size).to.equal(7);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(8);
+        for (let interval of Array.from(tree.allRangeSearch(0, 100)))
             expect(interval.getUpperBound() > 30 || interval.getLowerBound() < 10).to.be.true;
     });
 
@@ -204,9 +204,9 @@ describe('Removals', () => {
         tree.insert(new FlatInterval(23, 24));
         tree.insert(new FlatInterval(19, 41));
 
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(13);
         tree.rangeDelete(0, 100);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(0);
 
         // With binary making sure there are several levels in the tree
         tree = new IBplusTree<FlatInterval>(2, 0);
@@ -224,8 +224,8 @@ describe('Removals', () => {
         tree.insert(new FlatInterval(23, 24));
         tree.insert(new FlatInterval(19, 41));
 
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(13);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(13);
         tree.rangeDelete(0, 100);
-        expect(tree.allRangeSearch(new FlatInterval(0, 100)).size).to.equal(0);
+        expect(tree.allRangeSearch(0, 100).size).to.equal(0);
     });
 });
