@@ -64,7 +64,8 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         const intervals: Set<T> = new Set();
 
         for (let i = 0; i < this.keys.length; ++i)
-            if ((new FlatInterval(this.keys[i], this.maximums[i])).contains(int)) {
+            if (Interval.containsWithValues(
+                [this.keys[i], this.maximums[i]], [int.getLowerBound(), int.getUpperBound()])) {
                 const iterator = this.children[i].search(int).values();
 
                 for (let next = iterator.next(); next.done !== true; next = iterator.next())
@@ -76,7 +77,8 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
 
     loneRangeSearch(int: FlatInterval) {
         for (let i: number = 0; i < this.keys.length; ++i)
-            if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i])))
+            if (Interval.intersectsWithValues(
+                [int.getLowerBound(), int.getUpperBound()], [this.keys[i], this.maximums[i]]))
                 return this.children[i].loneRangeSearch(int)
 
         return null;
@@ -86,7 +88,8 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         const intervals: Set<T> = new Set();
 
         for (let i = 0; i < this.keys.length; ++i)
-            if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i]))) {
+            if (Interval.intersectsWithValues(
+                [int.getLowerBound(), int.getUpperBound()], [this.keys[i], this.maximums[i]])) {
                 const iterator = this.children[i].allRangeSearch(int).values();
 
                 for (let next = iterator.next(); next.done !== true; next = iterator.next())
@@ -163,7 +166,8 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         let res: [IBplusLeafNode<T>, number] = null;
 
         for (let i = 0; i < this.keys.length && res == null; ++i)
-            if ((new FlatInterval(this.keys[i], this.maximums[i])).contains(int))
+            if (Interval.containsWithValues(
+                [this.keys[i], this.maximums[i]], [int.getLowerBound(), int.getUpperBound()]))
                 res = this.children[i].findInterval(int);
 
         return res;
@@ -173,7 +177,8 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         let res: Array<[IBplusLeafNode<T>, Interval<T>]> = [];
 
         for (let i = 0; i < this.keys.length; ++i)
-            if ((new FlatInterval(this.keys[i], this.maximums[i])).intersect(int))
+            if (Interval.intersectsWithValues(
+                [this.keys[i], this.maximums[i]], [int.getLowerBound(), int.getUpperBound()]))
                 res.push(...this.children[i].findIntervalsInRange(int));
 
         return res;
