@@ -53,7 +53,7 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
 
     exists(int: T): boolean {
         for (let i: number = 0; i < this.keys.length; ++i)
-            if (int.contains(new FlatInterval(this.keys[i], this.maximums[i])))
+            if ((new FlatInterval(this.keys[i], this.maximums[i])).contains(int))
                 if (this.children[i].exists(int))
                     return true;
 
@@ -64,7 +64,7 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         const intervals: Set<T> = new Set();
 
         for (let i = 0; i < this.keys.length; ++i)
-            if (int.contains(new FlatInterval(this.keys[i], this.maximums[i]))) {
+            if ((new FlatInterval(this.keys[i], this.maximums[i])).contains(int)) {
                 const iterator = this.children[i].search(int).values();
 
                 for (let next = iterator.next(); next.done !== true; next = iterator.next())

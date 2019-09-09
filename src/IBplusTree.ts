@@ -89,7 +89,7 @@ export class IBplusTree<T extends FlatInterval> {
      * @returns Array of found intervals.
      */
     search(lowerBound: number, upperBound: number): Set<T> {
-        return null;
+        return this.root.search(new FlatInterval(lowerBound, upperBound));
     }
 
     /**
