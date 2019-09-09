@@ -71,10 +71,12 @@ export abstract class Interval<T extends FlatInterval> {
 
     /**
      * Returns true if this interval contains the given interval, false otherwise.
+     * Necessary the '| FlatInterval'  because of some supposed problem with ts.
+     * For more info check the issue: https://github.com/Microsoft/TypeScript/issues/28154
      * 
      * @param int the interval that might be contained
      */
-    contains(int: Interval<T>): boolean {
+    contains(int: Interval<T> | FlatInterval): boolean {
         return this.upperBound >= int.getUpperBound() &&
             this.lowerBound <= int.getLowerBound();
     }

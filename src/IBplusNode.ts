@@ -25,6 +25,11 @@ export abstract class IBplusNode<T extends FlatInterval> {
         protected keys: Array<number>,
         protected maximums: Array<number>) { }
 
+    /**
+     * Get this Node children.
+     * 
+     * @returns the array containing the children, may it be other nodes or intervals.
+     */
     abstract getChildren(): Array<any>;
 
     /**
@@ -104,6 +109,22 @@ export abstract class IBplusNode<T extends FlatInterval> {
     isRoot(): boolean {
         return this.parent == null;
     }
+
+    /**
+     * Verify if the given interval exists in the tree.
+     * 
+     * @param int the interval to be searched
+     * @returns the object if exists, null otherwise.
+     */
+    abstract exists(int: T): boolean;
+
+    /**
+     * Get all intervals stored in the tree with equal bounds to the given ones.
+     * 
+     * @param int search interval
+     * @returns Array of found intervals.
+     */
+    abstract search(int: FlatInterval): Set<T>;
 
     /**
      * Returns one interval (if there exists at least one) that intersects with the given search interval.

@@ -72,6 +72,27 @@ export class IBplusTree<T extends FlatInterval> {
     }
 
     /**
+     * Verify if the given interval exists in the tree.
+     * 
+     * @param interval the interval to be searched
+     * @returns the object if exists, null otherwise.
+     */
+    exists(interval: T): boolean {
+        return this.root.exists(interval);
+    }
+
+    /**
+     * Get all intervals stored in the tree with equal bounds to the given ones.
+     * 
+     * @param lowerBound The interval query lower bound
+     * @param upperBound The interval query upper bound
+     * @returns Array of found intervals.
+     */
+    search(lowerBound: number, upperBound: number): Set<T> {
+        return null;
+    }
+
+    /**
      * Gets the Interval with the lowest bound that intersects the
      * given interval.
      * 
@@ -82,7 +103,6 @@ export class IBplusTree<T extends FlatInterval> {
     loneRangeSearch(lowerBound: number, upperBound: number): T | null {
         return this.root.loneRangeSearch(new FlatInterval(lowerBound, upperBound));
     }
-
 
 
     /**

@@ -35,17 +35,39 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         return this.substSibling;
     }
 
+    exists(int: T): boolean {
+        for (const child of this.children)
+            if (child.getOriginalInterval().equals(int))
+                return true;
+
+        return false;
+    }
+
+    search(int: FlatInterval): Set<T> {
+        const intervals: Set<T> = new Set();
+
+        for (const child of this.children) {
+            const originInt: T = child.getOriginalInterval();
+
+            if (originInt.equals(int))
+                intervals.add(originInt);
+        }
+
+        return intervals;
+    }
+
     loneRangeSearch(int: FlatInterval): T | null {
-        for (let child of this.children)
+        for (const child of this.children)
             if (child.intersect(int))
                 return child.getOriginalInterval();
+
         return null;
     }
 
     allRangeSearch(int: FlatInterval) {
-        let intervals: Set<T> = new Set();
+        const intervals: Set<T> = new Set();
 
-        for (let child of this.children)
+        for (const child of this.children)
             if (child.intersect(int))
                 intervals.add(child.getOriginalInterval());
 

@@ -51,24 +51,46 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
             this.parent.updateMin(this);
     }
 
+    exists(int: T): boolean {
+        for (let i: number = 0; i < this.keys.length; ++i)
+            if (int.contains(new FlatInterval(this.keys[i], this.maximums[i])))
+                if (this.children[i].exists(int))
+                    return true;
+
+        return false;
+    }
+
+    search(int: FlatInterval): Set<T> {
+        const intervals: Set<T> = new Set();
+
+        for (let i = 0; i < this.keys.length; ++i)
+            if (int.contains(new FlatInterval(this.keys[i], this.maximums[i]))) {
+                const iterator = this.children[i].search(int).values();
+
+                for (let next = iterator.next(); next.done !== true; next = iterator.next())
+                    intervals.add(next.value);
+            }
+
+        return intervals;
+    }
+
     loneRangeSearch(int: FlatInterval) {
         for (let i: number = 0; i < this.keys.length; ++i)
             if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i])))
                 return this.children[i].loneRangeSearch(int)
+
         return null;
     }
 
     allRangeSearch(int: FlatInterval) {
-        let intervals: Set<T> = new Set();
+        const intervals: Set<T> = new Set();
 
         for (let i = 0; i < this.keys.length; ++i)
             if (int.intersect(new FlatInterval(this.keys[i], this.maximums[i]))) {
-                let iterator = this.children[i].allRangeSearch(int).values();
+                const iterator = this.children[i].allRangeSearch(int).values();
 
-                for (let next = iterator.next(); next.done !== true; next = iterator.next()) {
+                for (let next = iterator.next(); next.done !== true; next = iterator.next())
                     intervals.add(next.value);
-                }
-
             }
 
         return intervals;
