@@ -154,8 +154,9 @@ export abstract class IBplusNode<T extends FlatInterval> {
      * After splitting, inserts the interval that triggered the split into one of the nodes.
      * 
      * @param int The interval being inserted that triggered this split
+     * @returns the Leaf were the Interval ended up being inserted
      */
-    protected abstract split(int: Interval<T>): void;
+    protected abstract split(int: Interval<T>): IBplusLeafNode<T>;
 
     /**
      * Update the key and the maximum representing a node in its parent
@@ -186,7 +187,7 @@ export abstract class IBplusNode<T extends FlatInterval> {
 
         // If we are adding and the keys's size is already equal to order, split before insertion
         if (insertionNode.keys.length >= this.order)
-            insertionNode.split(int);
+            insertionNode = insertionNode.split(int);
         else
             insertionNode.addInterval(int);
 

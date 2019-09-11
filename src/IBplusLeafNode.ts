@@ -94,7 +94,7 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         this.children.splice(i, 0, int);
     }
 
-    split(int: Interval<T>): void {
+    split(int: Interval<T>): IBplusLeafNode<T> {
         //Need special care on binary trees
         let divIdx: number = Math.ceil(this.order / 2);
         let sibSize: number = this.order - divIdx;
@@ -117,10 +117,11 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         this.parent.updateWithNewNode(this, sibling);
 
         // Inserting the interval in the respective node
-        if (sibling.keys[0] < int.getLowerBound())
-            sibling.addInterval(int);
-        else
-            this.addInterval(int);
+        const insertionLeaf: IBplusLeafNode<T>
+            = sibling.keys[0] < int.getLowerBound() ? sibling : this;
+
+        insertionLeaf.addInterval(int);
+        return insertionLeaf;
     }
 
     findInterval(int: Interval<T>): [IBplusLeafNode<T>, number] | null {

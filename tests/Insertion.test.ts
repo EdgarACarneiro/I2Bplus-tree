@@ -230,4 +230,17 @@ describe('Insertions', () => {
         expect(child100.getParent()).to.equal(child10);
         expect(child100.isRoot()).to.be.false;
     });
+
+    it ('Insertion that triggers split and inserts on sibling', () => {
+        let root: IBplusInternalNode<FlatInterval> =
+            new IBplusInternalNode<FlatInterval>(2, null);
+
+        root.insert(new FlatInterval(0, 2), 0);
+        root.insert(new FlatInterval(1, -1), 0);
+        root.insert(new FlatInterval(4, 5), 0);
+
+        expect(root.getChildren().length).to.equal(2);
+        expect(root.getMax()).to.equal(5);
+        expect(root.getMinKey()).to.equal(-1);
+    });
 });

@@ -130,7 +130,7 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
             this.split();
     }
 
-    split(): void {
+    split(): IBplusLeafNode<T> {
         // If this is root, create a new root
         if (this.parent == null)
             this.parent = new IBplusInternalNode(
@@ -160,6 +160,10 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         this.setRightSibling(sibling);
 
         this.parent.updateWithNewNode(this, sibling);
+
+        // When called in IBplusInternalNode, the split method is not handling direct insertions
+        // hence, its return value is irrelevant
+        return null;
     }
 
     findInterval(int: Interval<T>): [IBplusLeafNode<T>, number] | null {
