@@ -104,7 +104,6 @@ export class IBplusTree<T extends FlatInterval> {
         return this.root.loneRangeSearch(new FlatInterval(lowerBound, upperBound));
     }
 
-
     /**
      * Find all intervals stored in the tree that intersect the given range.
      * 
@@ -114,5 +113,16 @@ export class IBplusTree<T extends FlatInterval> {
      */
     allRangeSearch(lowerBound: number, upperBound: number): Set<T> {
         return this.root.allRangeSearch(new FlatInterval(lowerBound, upperBound));
+    }
+
+    /**
+     * Find all intervals stored in the tree that are contained in the given range.
+     * 
+     * @param lowerBound The range query lower bound
+     * @param upperBound The range query upper bound
+     * @returns  Set of intervals that are contained in the range
+     */
+    containedRangeSearch(lowerBound: number, upperBound: number): Set<T> {
+        return this.root.containedRangeSearch(new FlatInterval(lowerBound, upperBound));
     }
 }

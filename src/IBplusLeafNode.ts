@@ -74,6 +74,16 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         return intervals;
     }
 
+    containedRangeSearch(int: FlatInterval) {
+        const intervals: Set<T> = new Set();
+
+        for (const child of this.children)
+            if (int.contains(child))
+                intervals.add(child.getOriginalInterval());
+
+        return intervals;
+    }
+
     findInsertNode(int: Interval<T>): IBplusLeafNode<T> {
         return this;
     }

@@ -142,6 +142,14 @@ export abstract class IBplusNode<T extends FlatInterval> {
     abstract allRangeSearch(int: FlatInterval): Set<T>;
 
     /**
+     * Returns a set with the original intervals that are contained within the given search interval.
+     * 
+     * @param int search interval
+     * @returns intervals contained in the given interval
+     */
+    abstract containedRangeSearch(int: FlatInterval): Set<T>;
+
+    /**
      * Returns the Leaf Node where the new interval shall be inserted.
      * Returns null when the tree has no children.
      * 

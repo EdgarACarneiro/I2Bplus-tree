@@ -99,6 +99,21 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
         return intervals;
     }
 
+    containedRangeSearch(int: FlatInterval) {
+        const intervals: Set<T> = new Set();
+
+        for (let i = 0; i < this.keys.length; ++i)
+            if (Interval.intersectsWithValues(
+                [int.getLowerBound(), int.getUpperBound()], [this.keys[i], this.maximums[i]])) {
+                const iterator = this.children[i].containedRangeSearch(int).values();
+
+                for (let next = iterator.next(); next.done !== true; next = iterator.next())
+                    intervals.add(next.value);
+            }
+
+        return intervals;
+    }
+
     findInsertNode(int: Interval<T>): IBplusLeafNode<T> | null {
         if (this.children.length == 0)
             return null;
