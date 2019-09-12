@@ -1,4 +1,4 @@
-import { Interval } from "./Interval";
+import { Interval } from './Interval';
 
 /**
  * Interval that stores data instead of other Intervals

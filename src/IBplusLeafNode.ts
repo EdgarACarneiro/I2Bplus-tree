@@ -4,7 +4,7 @@ import {
     Interval,
     CompoundInterval,
     FlatInterval
-} from "./internal"
+} from './internal';
 
 export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
 

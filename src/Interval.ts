@@ -1,4 +1,4 @@
-import { FlatInterval } from "./FlatInterval";
+import { FlatInterval } from './FlatInterval';
 
 /**
  * Class to implement a numeric interval [a, b].

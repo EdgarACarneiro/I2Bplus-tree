@@ -3,7 +3,7 @@ import {
     IBplusInternalNode,
     Interval,
     FlatInterval
-} from './internal'
+} from './internal';
 
 /**
  * Class implementation of a generic Interval B+-Tree node

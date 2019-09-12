@@ -1,4 +1,4 @@
-import { IBplusNode, IBplusLeafNode, Interval, FlatInterval } from "./internal"
+import { IBplusNode, IBplusLeafNode, Interval, FlatInterval } from './internal';
 
 export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
 
