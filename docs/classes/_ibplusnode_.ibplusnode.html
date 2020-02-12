@@ -1,0 +1,1449 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IBplusNode | ibplustree</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ibplustree</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_ibplusnode_.html">&quot;IBplusNode&quot;</a>
+				</li>
+				<li>
+					<a href="_ibplusnode_.ibplusnode.html">IBplusNode</a>
+				</li>
+			</ul>
+			<h1>Class IBplusNode&lt;T&gt;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class implementation of a generic Interval B+-Tree node</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T<span class="tsd-signature-symbol">: </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IBplusNode</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a>
+							</li>
+							<li>
+								<a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#keys" class="tsd-kind-icon">keys</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_ibplusnode_.ibplusnode.html#leftsibling" class="tsd-kind-icon">left<wbr>Sibling</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#maximums" class="tsd-kind-icon">maximums</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#order" class="tsd-kind-icon">order</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#parent" class="tsd-kind-icon">parent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_ibplusnode_.ibplusnode.html#rightsibling" class="tsd-kind-icon">right<wbr>Sibling</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#allrangesearch" class="tsd-kind-icon">all<wbr>Range<wbr>Search</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#borrow" class="tsd-kind-icon">borrow</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#concatsiblings" class="tsd-kind-icon">concat<wbr>Siblings</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#containedrangesearch" class="tsd-kind-icon">contained<wbr>Range<wbr>Search</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#exists" class="tsd-kind-icon">exists</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#findinsertnode" class="tsd-kind-icon">find<wbr>Insert<wbr>Node</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#findinterval" class="tsd-kind-icon">find<wbr>Interval</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#findintervalsinrange" class="tsd-kind-icon">find<wbr>Intervals<wbr>InRange</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#getchildren" class="tsd-kind-icon">get<wbr>Children</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#getleftsibling" class="tsd-kind-icon">get<wbr>Left<wbr>Sibling</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#getmax" class="tsd-kind-icon">get<wbr>Max</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#getminkey" class="tsd-kind-icon">get<wbr>Min<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#getrightsibling" class="tsd-kind-icon">get<wbr>Right<wbr>Sibling</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#handleunderflow" class="tsd-kind-icon">handle<wbr>Underflow</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#insert" class="tsd-kind-icon">insert</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#ischildnewroot" class="tsd-kind-icon">is<wbr>Child<wbr>New<wbr>Root</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#isroot" class="tsd-kind-icon">is<wbr>Root</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#isunderflow" class="tsd-kind-icon">is<wbr>Underflow</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#lonerangesearch" class="tsd-kind-icon">lone<wbr>Range<wbr>Search</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#merge" class="tsd-kind-icon">merge</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#setchildparentonborrow" class="tsd-kind-icon">set<wbr>Child<wbr>Parent<wbr>OnBorrow</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#setchildrenparentonmerge" class="tsd-kind-icon">set<wbr>Children<wbr>Parent<wbr>OnMerge</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#setleftsibling" class="tsd-kind-icon">set<wbr>Left<wbr>Sibling</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ibplusnode_.ibplusnode.html#setrightsibling" class="tsd-kind-icon">set<wbr>Right<wbr>Sibling</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#setsubstitutionnode" class="tsd-kind-icon">set<wbr>Substitution<wbr>Node</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#split" class="tsd-kind-icon">split</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_ibplusnode_.ibplusnode.html#updateparentvalues" class="tsd-kind-icon">update<wbr>Parent<wbr>Values</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new IBplus<wbr>Node<span class="tsd-signature-symbol">(</span>order<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, parent<span class="tsd-signature-symbol">: </span><a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, maximums<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L15">IBplusNode.ts:15</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>order: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Node&#39;s order. Must be the same in all tree nodes.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>parent: <a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>This node&#39;s parent node. If null, node is root</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>keys: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Keys are the lower bounds of this tree subtree</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>maximums: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Maximum end point of the intervals indexed by its subtree</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="keys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> keys</h3>
+					<div class="tsd-signature tsd-kind-icon">keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L25">IBplusNode.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Keys are the lower bounds of this tree subtree</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="leftsibling" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> left<wbr>Sibling</h3>
+					<div class="tsd-signature tsd-kind-icon">left<wbr>Sibling<span class="tsd-signature-symbol">:</span> <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L15">IBplusNode.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="maximums" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> maximums</h3>
+					<div class="tsd-signature tsd-kind-icon">maximums<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L26">IBplusNode.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Maximum end point of the intervals indexed by its subtree</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="order" class="tsd-anchor"></a>
+					<h3>order</h3>
+					<div class="tsd-signature tsd-kind-icon">order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L23">IBplusNode.ts:23</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Node&#39;s order. Must be the same in all tree nodes.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="parent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> parent</h3>
+					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L24">IBplusNode.ts:24</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This node&#39;s parent node. If null, node is root</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="rightsibling" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> right<wbr>Sibling</h3>
+					<div class="tsd-signature tsd-kind-icon">right<wbr>Sibling<span class="tsd-signature-symbol">:</span> <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L13">IBplusNode.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="allrangesearch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> all<wbr>Range<wbr>Search</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">all<wbr>Range<wbr>Search<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L142">IBplusNode.ts:142</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a set with the original intervals that intersect with the given search interval.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>search interval</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="borrow" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> borrow</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">borrow<span class="tsd-signature-symbol">(</span>sibling<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, insertId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, removeId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L247">IBplusNode.ts:247</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove an entry from the sibling node and add it to this node</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sibling: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The sibling this node is going to borrow from</p>
+									</div>
+								</li>
+								<li>
+									<h5>insertId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index where the element will be inserted</p>
+									</div>
+								</li>
+								<li>
+									<h5>removeId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index of the element going to be removed from the sibling</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="concatsiblings" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> concat<wbr>Siblings</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">concat<wbr>Siblings<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L101">IBplusNode.ts:101</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Function to be called on node deletion.
+									Sets this node siblings&#39; siblings to one each other, making this node no one&#39;s sibling</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="containedrangesearch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> contained<wbr>Range<wbr>Search</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">contained<wbr>Range<wbr>Search<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L150">IBplusNode.ts:150</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a set with the original intervals that are contained within the given search interval.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>search interval</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>intervals contained in the given interval</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="exists" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> exists</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">exists<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L119">IBplusNode.ts:119</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Verify if the given interval exists in the tree.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the interval to be searched</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>the object if exists, null otherwise.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="findinsertnode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> find<wbr>Insert<wbr>Node</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Insert<wbr>Node<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L158">IBplusNode.ts:158</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the Leaf Node where the new interval shall be inserted.
+									Returns null when the tree has no children.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the search interval</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="findinterval" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> find<wbr>Interval</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Interval<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L217">IBplusNode.ts:217</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Finds the given interval in its tree.
+										If the given interval exists, returns the leaf where it&#39;s stored
+										as well as its position in the keys of that leaf.
+									Otherwise returns null.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the interval to be found</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="findintervalsinrange" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> find<wbr>Intervals<wbr>InRange</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Intervals<wbr>InRange<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L229">IBplusNode.ts:229</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Finds all the intervals in the tree belonging to the given interval.
+										Returns an array of Pairs containing the interval and the leaf where
+									it&#39;s stored.</p>
+								</div>
+								<p>Necessary the &#39;| FlatInterval&#39;  because of some supposed problem with ts.
+								For more info check the issue: <a href="https://github.com/Microsoft/TypeScript/issues/28154">https://github.com/Microsoft/TypeScript/issues/28154</a></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the interval defining the limits for the found intervals.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getchildren" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Children</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Children<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L33">IBplusNode.ts:33</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get this Node children.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>the array containing the children, may it be other nodes or intervals.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getleftsibling" class="tsd-anchor"></a>
+					<h3>get<wbr>Left<wbr>Sibling</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Left<wbr>Sibling<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L84">IBplusNode.ts:84</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets this node left sibling.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getmax" class="tsd-anchor"></a>
+					<h3>get<wbr>Max</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Max<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L61">IBplusNode.ts:61</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the maximum number out of this node maximums</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getminkey" class="tsd-anchor"></a>
+					<h3>get<wbr>Min<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Min<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L54">IBplusNode.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the minimum key out of this node keys</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getparent" class="tsd-anchor"></a>
+					<h3>get<wbr>Parent</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L38">IBplusNode.ts:38</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get this node&#39;s parent node</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrightsibling" class="tsd-anchor"></a>
+					<h3>get<wbr>Right<wbr>Sibling</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Right<wbr>Sibling<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L68">IBplusNode.ts:68</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets this node right sibling.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="handleunderflow" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> handle<wbr>Underflow</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Underflow<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L297">IBplusNode.ts:297</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handle underflow by borrowing form siblings or merging with them</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="insert" class="tsd-anchor"></a>
+					<h3>insert</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">insert<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, alpha<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L186">IBplusNode.ts:186</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Insert the given Interval in the tree.
+										If alpha parameter is &gt; 0, TimeSplit is applied to a leaf node N after a
+										new interval is inserted into N and the end point of the new interval is
+									greater than the maximum end point among the intervals that were already in N.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the interval to be inserted</p>
+									</div>
+								</li>
+								<li>
+									<h5>alpha: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value of alpha used in the PickSplitPoint algorithm. If alpha &lt;= 0, time splits aren&#39;t used.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ischildnewroot" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> is<wbr>Child<wbr>New<wbr>Root</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Child<wbr>New<wbr>Root<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L322">IBplusNode.ts:322</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Template Method.
+									When a Node, if it is Internal, only has one child, it means the child can be the new Root.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isroot" class="tsd-anchor"></a>
+					<h3>is<wbr>Root</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Root<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L109">IBplusNode.ts:109</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true if this node is Root, false otherwise</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="isunderflow" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> is<wbr>Underflow</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Underflow<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L329">IBplusNode.ts:329</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Find out if this Node is in an underflow situation.
+										Invariant Underflow: Every node but the root must always have at least floor(order/ 2) keys.
+									Returns true if it is, false otherwise</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="lonerangesearch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> lone<wbr>Range<wbr>Search</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">lone<wbr>Range<wbr>Search<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L135">IBplusNode.ts:135</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns one interval (if there exists at least one) that intersects with the given search interval.
+									That interval is also the one with the minimum beginning point.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>search interval</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="merge" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> merge</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>sibling<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L279">IBplusNode.ts:279</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Merge this node into the given node</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sibling: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The sibling to merge with</p>
+									</div>
+								</li>
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The position where this node elements will be inserted</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removechild" class="tsd-anchor"></a>
+					<h3>remove<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Child<span class="tsd-signature-symbol">(</span>idx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L340">IBplusNode.ts:340</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove the node&#39;s child in the given idx
+										<a href="http://sites.fas.harvard.edu/~cs165/papers/comer.pdf">http://sites.fas.harvard.edu/~cs165/papers/comer.pdf</a>
+									<a href="http://www.cburch.com/cs/340/reading/btree/index.html#s3">http://www.cburch.com/cs/340/reading/btree/index.html#s3</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>idx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>idx of the interval</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="search" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> search</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L127">IBplusNode.ts:127</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all intervals stored in the tree with equal bounds to the given ones.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_flatinterval_.flatinterval.html" class="tsd-signature-type">FlatInterval</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>search interval</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of found intervals.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setchildparentonborrow" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> set<wbr>Child<wbr>Parent<wbr>OnBorrow</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Child<wbr>Parent<wbr>OnBorrow<span class="tsd-signature-symbol">(</span>newChild<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, insertId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L238">IBplusNode.ts:238</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Template Method.
+									Add and Update this node&#39;s new child parent.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newChild: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>new child</p>
+									</div>
+								</li>
+								<li>
+									<h5>insertId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>insertion idx</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setchildrenparentonmerge" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> set<wbr>Children<wbr>Parent<wbr>OnMerge</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Children<wbr>Parent<wbr>OnMerge<span class="tsd-signature-symbol">(</span>newParent<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L263">IBplusNode.ts:263</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Template Method.
+									Updates this node&#39;s children&#39;s parents, upon Merge.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newParent: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The children new parent</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setleftsibling" class="tsd-anchor"></a>
+					<h3>set<wbr>Left<wbr>Sibling</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Left<wbr>Sibling<span class="tsd-signature-symbol">(</span>sibling<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L93">IBplusNode.ts:93</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets this node left sibling to the given value.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sibling: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>new left sibling</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setparent" class="tsd-anchor"></a>
+					<h3>set<wbr>Parent</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Parent<span class="tsd-signature-symbol">(</span>newParent<span class="tsd-signature-symbol">: </span><a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L47">IBplusNode.ts:47</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set this node parent node</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newParent: <a href="_ibplusinternalnode_.ibplusinternalnode.html" class="tsd-signature-type">IBplusInternalNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>new parent node</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setrightsibling" class="tsd-anchor"></a>
+					<h3>set<wbr>Right<wbr>Sibling</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Right<wbr>Sibling<span class="tsd-signature-symbol">(</span>sibling<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L77">IBplusNode.ts:77</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets this node right sibling to the given value.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sibling: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>new right sibling</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="setsubstitutionnode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> set<wbr>Substitution<wbr>Node</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Substitution<wbr>Node<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L271">IBplusNode.ts:271</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Template Method.
+									Set this node&#39;s substitution node, upon Merge.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>node: <a href="_ibplusnode_.ibplusnode.html" class="tsd-signature-type">IBplusNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the substitution node</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="split" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> split</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">split<span class="tsd-signature-symbol">(</span>int<span class="tsd-signature-symbol">: </span><a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L167">IBplusNode.ts:167</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Splits a Node into two nodes and distibute in half the original node children.
+									After splitting, inserts the interval that triggered the split into one of the nodes.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>int: <a href="_interval_.interval.html" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The interval being inserted that triggered this split</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_ibplusleafnode_.ibplusleafnode.html" class="tsd-signature-type">IBplusLeafNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>the Leaf were the Interval ended up being inserted</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="updateparentvalues" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> update<wbr>Parent<wbr>Values</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Parent<wbr>Values<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/a42148d/src/IBplusNode.ts#L172">IBplusNode.ts:172</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update the key and the maximum representing a node in its parent</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_compoundinterval_.html">&quot;<wbr>Compound<wbr>Interval&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_flatinterval_.html">&quot;<wbr>Flat<wbr>Interval&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_ibplusinternalnode_.html">&quot;IBplus<wbr>Internal<wbr>Node&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_ibplusleafnode_.html">&quot;IBplus<wbr>Leaf<wbr>Node&quot;</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_ibplusnode_.html">&quot;IBplus<wbr>Node&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_ibplustree_.html">&quot;IBplus<wbr>Tree&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_interval_.html">&quot;<wbr>Interval&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_internal_.html">&quot;internal&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_ibplusnode_.ibplusnode.html" class="tsd-kind-icon">IBplus<wbr>Node</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#keys" class="tsd-kind-icon">keys</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_ibplusnode_.ibplusnode.html#leftsibling" class="tsd-kind-icon">left<wbr>Sibling</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#maximums" class="tsd-kind-icon">maximums</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#order" class="tsd-kind-icon">order</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#parent" class="tsd-kind-icon">parent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_ibplusnode_.ibplusnode.html#rightsibling" class="tsd-kind-icon">right<wbr>Sibling</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#allrangesearch" class="tsd-kind-icon">all<wbr>Range<wbr>Search</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#borrow" class="tsd-kind-icon">borrow</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#concatsiblings" class="tsd-kind-icon">concat<wbr>Siblings</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#containedrangesearch" class="tsd-kind-icon">contained<wbr>Range<wbr>Search</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#exists" class="tsd-kind-icon">exists</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#findinsertnode" class="tsd-kind-icon">find<wbr>Insert<wbr>Node</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#findinterval" class="tsd-kind-icon">find<wbr>Interval</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#findintervalsinrange" class="tsd-kind-icon">find<wbr>Intervals<wbr>InRange</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#getchildren" class="tsd-kind-icon">get<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#getleftsibling" class="tsd-kind-icon">get<wbr>Left<wbr>Sibling</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#getmax" class="tsd-kind-icon">get<wbr>Max</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#getminkey" class="tsd-kind-icon">get<wbr>Min<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#getrightsibling" class="tsd-kind-icon">get<wbr>Right<wbr>Sibling</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#handleunderflow" class="tsd-kind-icon">handle<wbr>Underflow</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#insert" class="tsd-kind-icon">insert</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#ischildnewroot" class="tsd-kind-icon">is<wbr>Child<wbr>New<wbr>Root</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#isroot" class="tsd-kind-icon">is<wbr>Root</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#isunderflow" class="tsd-kind-icon">is<wbr>Underflow</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#lonerangesearch" class="tsd-kind-icon">lone<wbr>Range<wbr>Search</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#merge" class="tsd-kind-icon">merge</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#search" class="tsd-kind-icon">search</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#setchildparentonborrow" class="tsd-kind-icon">set<wbr>Child<wbr>Parent<wbr>OnBorrow</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#setchildrenparentonmerge" class="tsd-kind-icon">set<wbr>Children<wbr>Parent<wbr>OnMerge</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#setleftsibling" class="tsd-kind-icon">set<wbr>Left<wbr>Sibling</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ibplusnode_.ibplusnode.html#setrightsibling" class="tsd-kind-icon">set<wbr>Right<wbr>Sibling</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#setsubstitutionnode" class="tsd-kind-icon">set<wbr>Substitution<wbr>Node</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#split" class="tsd-kind-icon">split</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_ibplusnode_.ibplusnode.html#updateparentvalues" class="tsd-kind-icon">update<wbr>Parent<wbr>Values</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
