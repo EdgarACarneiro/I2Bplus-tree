@@ -366,5 +366,5 @@ export abstract class IBplusNode<T extends FlatInterval> {
      * @param depth The current node depth
      * @returns The accumulated string, incremented with this node
      */
-    abstract asString(acc: String, depth: number): void;
+    abstract asString(acc: string, depth: number): string;
 }

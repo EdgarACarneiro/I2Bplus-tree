@@ -239,7 +239,7 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         return finalCost.indexOf(finalCostIdx);
     }
 
-    asString(acc: String = "", depth: number = 0): void {
+    asString(acc: string = "", depth: number = 0): string {
         // Adding tabs according to depth
         let tabs: string = "";
         for (let i: number = 0; i < depth; ++i)
@@ -247,5 +247,7 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
 
         for (let interval of this.children)
             acc += `${tabs}- [${interval.getLowerBound()} | ${interval.getUpperBound()}]\n`;
+
+        return acc;
     }
 }

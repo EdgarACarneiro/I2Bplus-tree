@@ -278,21 +278,24 @@ export class IBplusInternalNode<T extends FlatInterval> extends IBplusNode<T> {
     }
 
 
-    asString(acc: String = "", depth: number = 0): void {
+    asString(acc: string = "", depth: number = 0): string {
         // Adding tabs according to depth
+        let tabs: string = "";
         for (let i: number = 0; i < depth; ++i)
-            acc += '\t';
+            tabs += '\t';
 
-        acc += "- Keys |";
+        acc += `${tabs}- Keys |`;
         for (let key of this.keys)
             acc += `${key}|`;
 
-        acc += " - Max |";
+        acc += `\n${tabs}  Maxs |`;
         for (let max of this.maximums)
             acc += `${max}|`;
         acc += "\n";
 
         for (let child of this.children)
-            child.asString(acc, depth + 1);
+            acc = child.asString(acc, depth + 1);
+
+        return acc;
     }
 }

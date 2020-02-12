@@ -129,8 +129,10 @@ export class IBplusTree<T extends FlatInterval> {
     /**
      * Represents the current tree as a string.
      * Useful for printing purposes.
+     * 
+     * @returns the root as a string
      */
-    asString(): void {
+    asString(): string {
         return this.root.asString();
     }
 }
