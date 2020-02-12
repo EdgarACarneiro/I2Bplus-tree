@@ -104,7 +104,9 @@ export abstract class IBplusNode<T extends FlatInterval> {
     }
 
     /**
-     * Returns true if this node is Root, false otherwise
+     * Checks if this node is the root.
+     * 
+     * @returns true if this node is Root, false otherwise.
      */
     isRoot(): boolean {
         return this.parent == null;
@@ -131,6 +133,7 @@ export abstract class IBplusNode<T extends FlatInterval> {
      * That interval is also the one with the minimum beginning point.
      * 
      * @param int search interval
+     * @returns first interval intersecting the given range, or null if none does.
      */
     abstract loneRangeSearch(int: FlatInterval): T | null;
 
@@ -208,23 +211,23 @@ export abstract class IBplusNode<T extends FlatInterval> {
 
     /**
      * Finds the given interval in its tree.
-     * If the given interval exists, returns the leaf where it's stored
-     * as well as its position in the keys of that leaf.
-     * Otherwise returns null.
      * 
      * @param int the interval to be found
+     * @returns if the given interval exists, returns the leaf where it's stored
+     * as well as its position in the keys of that leaf.
+     * Otherwise returns null.
      */
     abstract findInterval(int: Interval<T>): [IBplusLeafNode<T>, number] | null;
 
     /**
      * Finds all the intervals in the tree belonging to the given interval.
-     * Returns an array of Pairs containing the interval and the leaf where
-     * it's stored.
      * 
      * Necessary the '| FlatInterval'  because of some supposed problem with ts.
      * For more info check the issue: https://github.com/Microsoft/TypeScript/issues/28154
      * 
      * @param int the interval defining the limits for the found intervals.
+     * @returns array of Pairs containing the interval and the respective
+     * leaf where it's stored.
      */
     abstract findIntervalsInRange(int: Interval<T> | FlatInterval): Array<[IBplusLeafNode<T>, Interval<T>]>;
 
@@ -324,7 +327,8 @@ export abstract class IBplusNode<T extends FlatInterval> {
     /**
      * Find out if this Node is in an underflow situation.
      * Invariant Underflow: Every node but the root must always have at least floor(order/ 2) keys.
-     * Returns true if it is, false otherwise
+     * 
+     * @returns true if it is, false otherwise
      */
     protected isUnderflow(): boolean {
         return this.keys.length < Math.floor(this.order / 2);
@@ -353,4 +357,14 @@ export abstract class IBplusNode<T extends FlatInterval> {
         else if (!this.isRoot())
             this.updateParentValues(); // Update parent keys
     }
+
+    /**
+     * Represents the current tree as a string.
+     * Useful for printing purposes.
+     * 
+     * @param acc The accumulated results of the other nodes strings
+     * @param depth The current node depth
+     * @returns The accumulated string, incremented with this node
+     */
+    abstract asString(acc: String, depth: number): void;
 }

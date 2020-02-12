@@ -125,4 +125,12 @@ export class IBplusTree<T extends FlatInterval> {
     containedRangeSearch(lowerBound: number, upperBound: number): Set<T> {
         return this.root.containedRangeSearch(new FlatInterval(lowerBound, upperBound));
     }
+
+    /**
+     * Represents the current tree as a string.
+     * Useful for printing purposes.
+     */
+    asString(): void {
+        return this.root.asString();
+    }
 }

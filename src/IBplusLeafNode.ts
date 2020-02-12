@@ -238,4 +238,14 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
         let finalCostIdx: number = Math.min(...finalCost.filter((_, idx) => this.maximums[idx] > maxbegin));
         return finalCost.indexOf(finalCostIdx);
     }
+
+    asString(acc: String = "", depth: number = 0): void {
+        // Adding tabs according to depth
+        let tabs: string = "";
+        for (let i: number = 0; i < depth; ++i)
+            tabs += '\t';
+
+        for (let interval of this.children)
+            acc += `${tabs}- [${interval.getLowerBound()} | ${interval.getUpperBound()}]\n`;
+    }
 }
