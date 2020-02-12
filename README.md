@@ -3,7 +3,7 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/EdgarACarneiro/IBplusTree?branch=master&token=c449d489bdfdd5280d12b3886c2bbfe9b8bdcc28)](https://bettercodehub.com/)
 [![Build Status](https://travis-ci.com/EdgarACarneiro/IBplusTree.svg?token=J52cxsfW92GANe4gUJgy&branch=master)](https://travis-ci.com/EdgarACarneiro/IBplusTree)
 
-The __Interval B+ tree__ is a valid-time indexing structure, first introduced by [Bozkaya and Ozsoyoglu](https://www.researchgate.net/publication/221465339_Indexing_Valid_Time_Intervals). This structure performs all operations (insertion, search and deletion) with logarithmic performance (_O (log n)_).
+The __Interval B+ tree__ is a valid-time indexing structure, first introduced by [Bozkaya and Ozsoyoglu](https://www.researchgate.net/publication/221465339_Indexing_Valid_Time_Intervals). This structure performs all operations (insertion, search and deletion) with logarithmic performance (_O (log n)_). Documentation is available [here](https://edgaracarneiro.github.io/IBplusTree/).
 
 | Insertion | Range Search | Deletion |
 |:-:|:-:|:-:|
