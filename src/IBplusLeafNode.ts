@@ -246,7 +246,7 @@ export class IBplusLeafNode<T extends FlatInterval> extends IBplusNode<T> {
             tabs += '\t';
 
         for (let interval of this.children)
-            acc += `${tabs}- [${interval.getLowerBound()} | ${interval.getUpperBound()}]\n`;
+            acc += `${tabs}- [${interval.getLowerBound()}, ${interval.getUpperBound()}]\n`;
 
         return acc;
     }
