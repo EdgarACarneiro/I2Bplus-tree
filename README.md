@@ -1,4 +1,4 @@
-# Imrpoved Interval B+ tree implementation (_I2B+ tree_)
+# Improved Interval B+ tree implementation (_I2B+ tree_)
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/EdgarACarneiro/IBplusTree?branch=master&token=c449d489bdfdd5280d12b3886c2bbfe9b8bdcc28)](https://bettercodehub.com/)
 [![Build Status](https://travis-ci.com/EdgarACarneiro/IBplusTree.svg?token=J52cxsfW92GANe4gUJgy&branch=master)](https://travis-ci.com/EdgarACarneiro/IBplusTree)
