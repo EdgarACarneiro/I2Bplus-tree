@@ -16,6 +16,7 @@
     "@types/node": "^11.13.4",
     "benchmark": "^2.1.4",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.11",
     "mocha": "^6.0.2",
     "nyc": "^13.3.0",
     "ts-node": "^8.0.3",
@@ -24,7 +25,7 @@
   },
   "scripts": {
     "test": "mocha -r ts-node/register tests/*.test.ts",
-    "test-coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/*.test.ts && nyc report",
+    "test-coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/*.test.ts && nyc report --reporter=text-lcov | coveralls",
     "benchmark": "node -r ts-node/register benchmarks/src/Main.benchmark.ts"
   },
   "repository": {

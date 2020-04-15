@@ -2,6 +2,7 @@
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/EdgarACarneiro/I2Bplus-tree?branch=master&token=6eb26f12342d4d3648bf704878204af9fc8d1080)](https://bettercodehub.com/)
 [![Build Status](https://travis-ci.com/EdgarACarneiro/I2Bplus-tree.svg?token=J52cxsfW92GANe4gUJgy&branch=master)](https://travis-ci.com/EdgarACarneiro/I2BplusTree)
+[![Coverage Status](https://coveralls.io/repos/github/EdgarACarneiro/I2Bplus-tree/badge.svg)](https://coveralls.io/github/EdgarACarneiro/I2Bplus-tree)
 
 The ___Interval B+ tree (IB+ tree)___ is a valid-time indexing structure, first introduced by [Bozkaya and Ozsoyoglu](https://www.researchgate.net/publication/221465339_Indexing_Valid_Time_Intervals). This indexing structure appears as a time-efficient indexing structure for the management of valid-time/ intervals.
 
