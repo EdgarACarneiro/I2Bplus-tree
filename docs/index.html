@@ -69,8 +69,8 @@
 				</a>
 				<p><a href="https://bettercodehub.com/"><img src="https://bettercodehub.com/edge/badge/EdgarACarneiro/I2Bplus-tree?branch=master&token=6eb26f12342d4d3648bf704878204af9fc8d1080" alt="BCH compliance"></a>
 				<a href="https://travis-ci.com/EdgarACarneiro/I2BplusTree"><img src="https://travis-ci.com/EdgarACarneiro/I2Bplus-tree.svg?token=J52cxsfW92GANe4gUJgy&branch=master" alt="Build Status"></a></p>
-				<p>The <strong>Interval B+ tree (IB+ tree)</strong> is a valid-time indexing structure, first introduced by <a href="https://www.researchgate.net/publication/221465339_Indexing_Valid_Time_Intervals">Bozkaya and Ozsoyoglu</a>. This indexing structure appears as a time-efficient indexing structure for the management of valid-time/ intervals.</p>
-				<p>In this repository, we present the <strong><em>Improved Interval B+ tree (I2B+ tree)</em></strong>, an indexing structure based on the <em>IB+ tree</em>, but with minor structural changes to improve the performance of the deletion operation. For a more detailed analysis of the <em>I2B+ tree</em>, refer to the paper *_being published_* in the <a href="http://www.cisti.eu">CISTI&#39;2020 Conference</a>.</p>
+				<p>The <strong><em>Interval B+ tree (IB+ tree)</em></strong> is a valid-time indexing structure, first introduced by <a href="https://www.researchgate.net/publication/221465339_Indexing_Valid_Time_Intervals">Bozkaya and Ozsoyoglu</a>. This indexing structure appears as a time-efficient indexing structure for the management of valid-time/ intervals.</p>
+				<p>In this repository, we present the <strong><em>Improved Interval B+ tree (I2B+ tree)</em></strong>, an indexing structure based on the <em>IB+ tree</em>, but with minor structural changes to improve the performance of the deletion operation. For a more detailed analysis of the <em>I2B+ tree</em>, refer to the paper * <em>being published</em> * in the <a href="http://www.cisti.eu">CISTI&#39;2020 Conference</a>.</p>
 				<p>This structure performs all operations (insertion, search and deletion) with logarithmic performance (<em>O (log n)</em>). Documentation is available <a href="https://edgaracarneiro.github.io/I2Bplus-tree/">here</a>.</p>
 				<table>
 					<thead>
@@ -91,14 +91,15 @@
 					<h1>Usage</h1>
 				</a>
 				<p>To suit the <em>I2BplusTree</em> to your needs, implement a class that <strong>extends the <a href="https://github.com/EdgarACarneiro/IBplusTree/blob/master/src/FlatInterval.ts">FlatInterval</a></strong> class, defining the information that will be stored on leaves there. One might also want to override the <code>equals</code> method, thus allowing the incorporation of the extra information stored in the Intervals in comparisons.</p>
-				<a href="#important-considerations" id="important-considerations" style="color: inherit; text-decoration: none;">
-					<h1>Important Considerations</h1>
+				<a href="#acknowledgements" id="acknowledgements" style="color: inherit; text-decoration: none;">
+					<h1>Acknowledgements</h1>
 				</a>
 				<p>This work was financed by the ERDF – European Regional Development Fund through the Operational Programme for Competitiveness and Internationalisation - COMPETE 2020 Programme and by National Funds through the Portuguese funding agency, FCT - Fundação para a Ciência e a Tecnologia within project PTDC/CCI-INF/32636/2017 (POCI-01-0145-FEDER-032636).</p>
+				<p>This work is also part of <a href="http://most.web.ua.pt">MOST</a>.</p>
 				<a href="#citation" id="citation" style="color: inherit; text-decoration: none;">
 					<h1>Citation</h1>
 				</a>
-				<p>*_being published_*</p>
+				<p>* <em>being published</em> *</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
