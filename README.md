@@ -6,7 +6,7 @@
 
 The ___Interval B+ tree (IB+ tree)___ is a valid-time indexing structure, first introduced by [Bozkaya and Ozsoyoglu](https://www.researchgate.net/publication/221465339_Indexing_Valid_Time_Intervals). This indexing structure appears as a time-efficient indexing structure for the management of valid-time/ intervals.
 
-In this repository, we present the ___Improved Interval B+ tree (I2B+ tree)___, an indexing structure based on the _IB+ tree_, but with minor structural changes to improve the performance of the deletion operation. For a more detailed analysis of the _I2B+ tree_, refer to the paper \* _being published_ \* in the [CISTI'2020 Conference](http://www.cisti.eu).
+In this repository, we present the ___Improved Interval B+ tree (I2B+ tree)___, an indexing structure based on the _IB+ tree_, but with minor structural changes to improve the performance of the deletion operation. For a more detailed analysis of the _I2B+ tree_, refer to the paper published in the [CISTI'2020 Conference](http://www.cisti.eu), available at [__IEEE__](https://ieeexplore.ieee.org/document/9140897).
 
 This structure performs all operations (insertion, search and deletion) with logarithmic performance (_O (log n)_). Documentation is available [here](https://edgaracarneiro.github.io/I2Bplus-tree/).
 
@@ -29,4 +29,4 @@ This work is also part of [MOST](http://most.web.ua.pt).
 
 # Citation
 
-\* _being published_ \*
+> E. Carneiro, A. V. d. Carvalho and M. A. Oliveira, "I2B+tree: Interval B+ tree variant towards fast indexing of time-dependent data," 2020 15th Iberian Conference on Information Systems and Technologies (CISTI), Sevilla, Spain, 2020, pp. 1-7, doi: 10.23919/CISTI49556.2020.9140897.
