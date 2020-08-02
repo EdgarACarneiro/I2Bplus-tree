@@ -1,3 +1,6 @@
+:warning: This repository has been archived. Further developments continue at __[https://github.com/most-inesctec/I2Bplus-tree](https://github.com/most-inesctec/I2Bplus-tree)__! :warning:
+
+
 # Improved Interval B+ tree implementation (_I2B+ tree_)
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/EdgarACarneiro/I2Bplus-tree?branch=master&token=6eb26f12342d4d3648bf704878204af9fc8d1080)](https://bettercodehub.com/)
